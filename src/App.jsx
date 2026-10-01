@@ -68,7 +68,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-genome-bg text-slate-800 dark:text-slate-100 flex flex-col font-sans selection:bg-emerald-500/25 selection:text-emerald-700 dark:selection:text-emerald-300 transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-genome-bg text-slate-800 dark:text-slate-100 flex flex-col font-sans selection:bg-emerald-500/25 selection:text-emerald-700 dark:selection:text-emerald-300 transition-colors overflow-x-hidden">
       {/* Global Sticky Header */}
       <Header />
 
@@ -78,7 +78,7 @@ export default function App() {
         <Sidebar />
 
         {/* Dynamic Main Workspace Content */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 min-w-0 overflow-y-auto">
+        <main className="flex-1 p-3.5 sm:p-6 lg:p-8 min-w-0 overflow-y-auto pb-28 md:pb-8">
           <GenomeMatchBanner />
           {activePage === 'home' && <DashboardPage />}
           {activePage === 'library' && <LibraryPage />}

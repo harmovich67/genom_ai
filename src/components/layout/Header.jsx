@@ -32,16 +32,16 @@ export default function Header() {
   const genomesCount = useGenomeStore((s) => s.genomes.length);
 
   return (
-    <header className="sticky top-0 z-30 h-16 w-full bg-white/80 dark:bg-[#07090E]/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/[0.08] px-4 md:px-6 flex items-center justify-between transition-all">
+    <header className="sticky top-0 z-30 h-16 w-full bg-white/85 dark:bg-[#07090E]/85 backdrop-blur-xl border-b border-slate-200 dark:border-white/[0.08] px-3 sm:px-6 flex items-center justify-between transition-all">
       {/* Brand / Logo */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 shrink-0">
         <button
           onClick={() => setPage('home')}
-          className="flex items-center gap-2.5 group text-right focus:outline-none"
+          className="flex items-center gap-2 group text-right focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 via-purple-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center shadow-glow-emerald group-hover:scale-105 transition-transform">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 via-purple-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center shadow-glow-emerald group-hover:scale-105 transition-transform shrink-0">
             <svg
-              className="w-5 h-5 text-emerald-500 dark:text-emerald-400"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 dark:text-emerald-400"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -57,10 +57,10 @@ export default function Header() {
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-heading font-extrabold text-base tracking-tight text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+              <span className="font-heading font-extrabold text-sm sm:text-base tracking-tight text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors whitespace-nowrap">
                 {lang === 'ar' ? 'جينوم الكود' : 'CODE GENOME'}
               </span>
-              <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+              <span className="hidden sm:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                 v2.0
               </span>
             </div>
@@ -93,7 +93,7 @@ export default function Header() {
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-2 sm:gap-3">
+      <div className="flex items-center gap-1 sm:gap-2">
         {/* Status Indicators */}
         <div className="hidden lg:flex items-center gap-2 text-xs font-mono">
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300">
@@ -111,10 +111,11 @@ export default function Header() {
         {/* Add New Genome Button */}
         <button
           onClick={() => openModal('newGenome')}
-          className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-medium text-xs shadow-glow-emerald transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          title={lang === 'ar' ? 'إضافة جينوم جديد' : 'New Genome'}
+          className="w-8 h-8 sm:w-auto sm:px-3.5 sm:py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-medium text-xs shadow-glow-emerald transition-all hover:scale-105 active:scale-95 flex items-center justify-center shrink-0 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
-          <span className="hidden sm:inline">
+          <span className="hidden sm:inline ms-1.5">
             {lang === 'ar' ? 'إضافة جينوم' : 'New Genome'}
           </span>
         </button>
@@ -126,7 +127,7 @@ export default function Header() {
         <button
           onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
           title={lang === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
-          className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all text-xs font-semibold cursor-pointer"
+          className="w-8 h-8 sm:w-auto sm:px-2.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all text-[11px] sm:text-xs font-semibold flex items-center justify-center shrink-0 cursor-pointer"
         >
           {lang === 'ar' ? 'EN' : 'عربي'}
         </button>
@@ -135,7 +136,7 @@ export default function Header() {
         <button
           onClick={toggleTheme}
           title="تبديل المظهر"
-          className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
+          className="w-8 h-8 sm:w-auto sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center shrink-0 cursor-pointer"
         >
           {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />}
         </button>
@@ -144,7 +145,7 @@ export default function Header() {
         <button
           onClick={logout}
           title={lang === 'ar' ? 'قفل الداشبورد' : 'Lock Dashboard'}
-          className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-rose-400 dark:hover:border-rose-500/40 text-slate-600 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 transition-all cursor-pointer"
+          className="w-8 h-8 sm:w-auto sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-rose-400 dark:hover:border-rose-500/40 text-slate-600 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 transition-all flex items-center justify-center shrink-0 cursor-pointer"
         >
           <Lock className="w-4 h-4" />
         </button>
@@ -152,7 +153,8 @@ export default function Header() {
         {/* Mobile Search button */}
         <button
           onClick={() => setCommandPaletteOpen(true)}
-          className="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] text-slate-600 dark:text-slate-300 cursor-pointer"
+          title={lang === 'ar' ? 'البحث السريع' : 'Search'}
+          className="md:hidden w-8 h-8 p-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] text-slate-600 dark:text-slate-300 flex items-center justify-center shrink-0 cursor-pointer"
         >
           <Search className="w-4 h-4" />
         </button>

@@ -72,11 +72,11 @@ export default function NotificationsPopover() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         title="الإشعارات والتنبيهات المعرفية"
-        className="relative p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
+        className="relative w-8 h-8 sm:w-auto p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center cursor-pointer"
       >
         <Bell className="w-4 h-4" />
         {unread > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-emerald-500 text-black font-bold text-[10px] flex items-center justify-center shadow-glow-emerald animate-pulse">
+          <span className="absolute -top-1 -right-1 min-w-[17px] h-[17px] px-1 rounded-full bg-emerald-500 text-black font-bold text-[9px] flex items-center justify-center shadow-glow-emerald animate-pulse">
             {unread}
           </span>
         )}
@@ -85,13 +85,20 @@ export default function NotificationsPopover() {
       {/* Popover Dropdown */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.15 }}
-            className="absolute ltr:right-0 ltr:left-auto rtl:left-0 rtl:right-auto mt-2 w-[calc(100vw-2rem)] sm:w-96 max-w-[24rem] rounded-2xl glass-dropdown border border-slate-200 dark:border-white/[0.12] shadow-2xl overflow-hidden z-50 flex flex-col max-h-[85vh]"
-          >
+          <>
+            {/* Mobile backdrop overlay */}
+            <div
+              onClick={() => setIsOpen(false)}
+              className="sm:hidden fixed inset-0 bg-black/40 backdrop-blur-xs z-40"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: 8, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.96 }}
+              transition={{ duration: 0.15 }}
+              className="fixed inset-x-3 top-20 sm:top-auto sm:inset-auto sm:absolute ltr:sm:right-0 rtl:sm:left-0 sm:mt-2 w-auto sm:w-96 max-w-full sm:max-w-[24rem] rounded-2xl glass-dropdown border border-slate-200 dark:border-white/[0.12] shadow-2xl overflow-hidden z-50 flex flex-col max-h-[75vh] sm:max-h-[85vh]"
+            >
             {/* Popover Header */}
             <div className="p-3.5 border-b border-slate-200 dark:border-white/[0.08] flex items-center justify-between bg-slate-50 dark:bg-black/40">
               <div className="flex items-center gap-2">
@@ -177,6 +184,7 @@ export default function NotificationsPopover() {
               </span>
             </div>
           </motion.div>
+        </>
         )}
       </AnimatePresence>
     </div>
