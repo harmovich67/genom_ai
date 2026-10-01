@@ -11,7 +11,8 @@ import {
   Sparkles,
   Command,
   Layers,
-  Menu
+  Menu,
+  Lock
 } from 'lucide-react';
 import NotificationsPopover from '../ui/NotificationsPopover';
 
@@ -24,7 +25,8 @@ export default function Header() {
     setCommandPaletteOpen,
     openModal,
     setPage,
-    aiAccessEnabled
+    aiAccessEnabled,
+    logout
   } = useUIStore();
 
   const genomesCount = useGenomeStore((s) => s.genomes.length);
@@ -136,6 +138,15 @@ export default function Header() {
           className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
         >
           {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />}
+        </button>
+
+        {/* Lock Dashboard Button */}
+        <button
+          onClick={logout}
+          title={lang === 'ar' ? 'قفل الداشبورد' : 'Lock Dashboard'}
+          className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-rose-400 dark:hover:border-rose-500/40 text-slate-600 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 transition-all cursor-pointer"
+        >
+          <Lock className="w-4 h-4" />
         </button>
 
         {/* Mobile Search button */}

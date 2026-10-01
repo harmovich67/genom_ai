@@ -28,9 +28,10 @@ import ChallengesPage from './features/challenges/ChallengesPage';
 import AIMentorPage from './features/ai/AIMentorPage';
 import ProfilePage from './features/profile/ProfilePage';
 import SettingsPage from './features/settings/SettingsPage';
+import LockScreen from './components/auth/LockScreen';
 
 export default function App() {
-  const { activePage, lang, dir, theme } = useUIStore();
+  const { activePage, lang, dir, theme, isAuthenticated } = useUIStore();
   const initializeGenomes = useGenomeStore((s) => s.initializeGenomes);
   const initializeProjects = useProjectStore((s) => s.initializeProjects);
   const initializeBugs = useDebugStore((s) => s.initializeBugs);
@@ -47,12 +48,24 @@ export default function App() {
       document.documentElement.classList.remove('dark');
     }
 
-    initializeGenomes();
-    initializeProjects();
-    initializeBugs();
-    initializeIdeas();
-    initializeChallenges();
-  }, [lang, dir, theme, initializeGenomes, initializeProjects, initializeBugs, initializeIdeas, initializeChallenges]);
+    if (isAuthenticated) {
+      initializeGenomes();
+      initializeProjects();
+      initializeBugs();
+      initializeIdeas();
+      initializeChallenges();
+    }
+  }, [lang, dir, theme, isAuthenticated, initializeGenomes, initializeProjects, initializeBugs, initializeIdeas, initializeChallenges]);
+
+  // Protected Dashboard Lock Screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-genome-bg text-slate-800 dark:text-slate-100 flex flex-col font-sans transition-colors">
+        <LockScreen />
+        <ToastContainer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-genome-bg text-slate-800 dark:text-slate-100 flex flex-col font-sans selection:bg-emerald-500/25 selection:text-emerald-700 dark:selection:text-emerald-300 transition-colors">

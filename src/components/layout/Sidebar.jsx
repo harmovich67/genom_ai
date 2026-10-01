@@ -18,11 +18,12 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
-  Sparkles
+  Sparkles,
+  Lock
 } from 'lucide-react';
 
 export default function Sidebar() {
-  const { activePage, setPage, lang, dir } = useUIStore();
+  const { activePage, setPage, lang, dir, logout } = useUIStore();
   const genomesCount = useGenomeStore((s) => s.genomes.length);
   const projectsCount = useProjectStore((s) => s.projects.length);
   const bugsCount = useDebugStore((s) => s.bugs.length);
@@ -183,6 +184,17 @@ export default function Sidebar() {
                 </button>
               );
             })}
+
+            {/* Lock Dashboard / Logout */}
+            <button
+              onClick={logout}
+              className="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-all cursor-pointer group"
+            >
+              <div className="p-1 rounded-lg text-slate-400 group-hover:text-rose-500 transition-colors">
+                <Lock className="w-4 h-4" />
+              </div>
+              <span>{lang === 'ar' ? 'قفل الداشبورد' : 'Lock Dashboard'}</span>
+            </button>
           </nav>
         </div>
       </div>

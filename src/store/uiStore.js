@@ -12,6 +12,20 @@ export const useUIStore = create((set, get) => ({
   activePage: 'home', // 'home' | 'library' | 'workbench' | 'projects' | 'debug' | 'ideas' | 'challenges' | 'ai' | 'profile' | 'settings'
   toasts: [],
 
+  isAuthenticated: localStorage.getItem('genome_authenticated') === 'true',
+  login: (password) => {
+    if (password === '123@@##$$456Hh') {
+      localStorage.setItem('genome_authenticated', 'true');
+      set({ isAuthenticated: true });
+      return true;
+    }
+    return false;
+  },
+  logout: () => {
+    localStorage.removeItem('genome_authenticated');
+    set({ isAuthenticated: false });
+  },
+
   setPage: (page) => set({ activePage: page }),
 
   setLang: (lang) => {
