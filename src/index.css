@@ -81,6 +81,12 @@
     background: transparent;
   }
 
+  ::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
   /* Utility to hide scrollbar while preserving scroll functionality */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

@@ -144,6 +144,36 @@ export default function WorkbenchPage() {
         <meta charset="UTF-8" />
         <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;700&display=swap" rel="stylesheet">
         <style>
+          /* Sleek modern macOS/iOS style custom scrollbars inside iframe */
+          * {
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: ${theme === 'dark' ? 'rgba(255, 255, 255, 0.22) transparent' : 'rgba(100, 116, 139, 0.4) transparent'};
+          }
+          ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+          }
+          ::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          ::-webkit-scrollbar-thumb {
+            background-color: ${theme === 'dark' ? 'rgba(255, 255, 255, 0.22)' : 'rgba(100, 116, 139, 0.4)'};
+            border-radius: 9999px;
+            transition: background-color 0.2s ease;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(16, 185, 129, 0.65);
+          }
+          ::-webkit-scrollbar-button {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+          }
+          ::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+
           ${css}
         </style>
       </head>
