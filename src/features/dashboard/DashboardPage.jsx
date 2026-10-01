@@ -87,7 +87,7 @@ export default function DashboardPage() {
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading">
-              {lang === 'ar' ? 'مساء الخير، حسام.' : 'Good evening, Hossam.'}
+              {lang === 'ar' ? 'مساء الخير، هرم.' : 'Good evening, Glitch.'}
             </h1>
             <p className="text-slate-600 dark:text-slate-300 text-sm mt-1 max-w-xl leading-relaxed">
               {lang === 'ar'

@@ -127,7 +127,7 @@ export default function Header() {
         <button
           onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
           title={lang === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
-          className="w-8 h-8 sm:w-auto sm:px-2.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all text-[11px] sm:text-xs font-semibold flex items-center justify-center shrink-0 cursor-pointer"
+          className="!hidden w-8 h-8 sm:w-auto sm:px-2.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all text-[11px] sm:text-xs font-semibold flex items-center justify-center shrink-0 cursor-pointer"
         >
           {lang === 'ar' ? 'EN' : 'عربي'}
         </button>
