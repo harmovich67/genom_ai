@@ -218,15 +218,15 @@ export default function WorkbenchPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8.5rem)] space-y-3 pb-8">
+    <div className="flex flex-col min-h-[calc(100vh-10rem)] md:h-[calc(100vh-8.5rem)] space-y-3 pb-8">
       {/* Workbench Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl glass-panel shrink-0">
+      <div className="flex items-center justify-between gap-2 p-2.5 sm:p-3 rounded-2xl glass-panel shrink-0">
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400">
+          <div className="p-2 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 shrink-0">
             <Terminal className="w-4 h-4" />
           </div>
           <div>
-            <h2 className="text-sm font-bold text-slate-900 dark:text-white tracking-tight font-heading">
+            <h2 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white tracking-tight font-heading">
               مختبر الأكواد الحي (Code Workbench)
             </h2>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
@@ -236,26 +236,28 @@ export default function WorkbenchPage() {
         </div>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={triggerRun}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-glow-emerald transition-all cursor-pointer"
+            className="flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-glow-emerald transition-all cursor-pointer"
+            title="تشغيل الكود"
           >
             <Play className="w-3.5 h-3.5 fill-current" />
-            <span>تشغيل (Run)</span>
+            <span className="hidden sm:inline">تشغيل (Run)</span>
           </button>
 
           <button
             onClick={() => setShowSaveModal(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs shadow-glow-purple transition-all cursor-pointer"
+            className="flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs shadow-glow-purple transition-all cursor-pointer"
+            title="حفظ كنسخة جينوم جديدة"
           >
             <Save className="w-3.5 h-3.5" />
-            <span>حفظ كنسخة جينوم جديدة</span>
+            <span className="hidden sm:inline">حفظ كنسخة</span>
           </button>
 
           <button
             onClick={handleCopyCurrent}
-            className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-300 transition-colors"
+            className="p-1.5 sm:p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
             title="نسخ الكود النشط"
           >
             {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -263,7 +265,7 @@ export default function WorkbenchPage() {
 
           <button
             onClick={resetDefaults}
-            className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+            className="p-1.5 sm:p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors cursor-pointer"
             title="إعادة تعيين القالب"
           >
             <RotateCcw className="w-4 h-4" />
@@ -271,31 +273,47 @@ export default function WorkbenchPage() {
         </div>
       </div>
 
-      {/* Mobile Pane Switcher */}
-      <div className="md:hidden flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/[0.08] shrink-0">
+      {/* Mobile Full-Screen Tabs Switcher: Editor | Preview | Console */}
+      <div className="md:hidden flex items-center p-1 rounded-2xl bg-white dark:bg-[#0D121F] border border-slate-200 dark:border-white/[0.1] shadow-sm shrink-0 gap-1">
         <button
           onClick={() => setMobilePane('editor')}
-          className={`flex-1 py-1.5 rounded-lg text-xs font-medium ${
-            mobilePane === 'editor' ? 'bg-emerald-600 text-white' : 'text-slate-500 dark:text-slate-400'
+          className={`flex-1 py-2 px-1 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+            mobilePane === 'editor'
+              ? 'bg-emerald-600 text-white shadow-glow-emerald'
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
-          المحرر (Editor)
+          <Code className="w-3.5 h-3.5" />
+          <span>المحرر (Code)</span>
         </button>
         <button
           onClick={() => setMobilePane('preview')}
-          className={`flex-1 py-1.5 rounded-lg text-xs font-medium ${
-            mobilePane === 'preview' ? 'bg-emerald-500 text-white' : 'text-slate-400'
+          className={`flex-1 py-2 px-1 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+            mobilePane === 'preview'
+              ? 'bg-emerald-600 text-white shadow-glow-emerald'
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
-          المعاينة (Preview)
+          <Eye className="w-3.5 h-3.5" />
+          <span>المعاينة (Preview)</span>
         </button>
         <button
           onClick={() => setMobilePane('console')}
-          className={`flex-1 py-1.5 rounded-lg text-xs font-medium ${
-            mobilePane === 'console' ? 'bg-emerald-500 text-white' : 'text-slate-400'
+          className={`flex-1 py-2 px-1 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+            mobilePane === 'console'
+              ? 'bg-emerald-600 text-white shadow-glow-emerald'
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
-          الكونسول ({consoleLogs.length})
+          <Terminal className="w-3.5 h-3.5" />
+          <span>الكونسول</span>
+          {consoleLogs.length > 0 && (
+            <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-mono font-bold leading-none ${
+              mobilePane === 'console' ? 'bg-white/25 text-white' : 'bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300'
+            }`}>
+              {consoleLogs.length}
+            </span>
+          )}
         </button>
       </div>
 
@@ -304,7 +322,7 @@ export default function WorkbenchPage() {
         {/* LEFT / CODE EDITOR PANE */}
         <div
           className={`flex-col rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] overflow-hidden min-h-0 ${
-            mobilePane === 'editor' ? 'flex' : 'hidden md:flex'
+            mobilePane === 'editor' ? 'flex h-[calc(100vh-17.5rem)] md:h-auto' : 'hidden md:flex'
           }`}
         >
           {/* Editor Language Tabs (JS, HTML, CSS, JSON, Markdown) */}
@@ -429,13 +447,15 @@ export default function WorkbenchPage() {
         {/* RIGHT / PREVIEW & CONSOLE PANE */}
         <div
           className={`flex-col gap-3 min-h-0 ${
-            mobilePane !== 'editor' ? 'flex' : 'hidden md:flex'
+            mobilePane !== 'editor' ? 'flex h-[calc(100vh-17.5rem)] md:h-auto' : 'hidden md:flex'
           }`}
         >
           {/* Live Preview / Render Window */}
           <div
-            className={`flex-1 rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] overflow-hidden flex-col min-h-[220px] ${
-              mobilePane === 'console' ? 'hidden md:flex' : 'flex'
+            className={`rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] overflow-hidden flex-col ${
+              mobilePane === 'preview'
+                ? 'flex flex-1 h-full min-h-0'
+                : 'hidden md:flex md:flex-1 md:min-h-[220px]'
             }`}
           >
             <div className="flex items-center justify-between px-3 py-2 border-b border-slate-200 dark:border-white/[0.08] bg-slate-100 dark:bg-[#050811] text-xs font-mono text-slate-600 dark:text-slate-400">
@@ -497,8 +517,10 @@ export default function WorkbenchPage() {
 
           {/* Console Output Log */}
           <div
-            className={`h-44 rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] overflow-hidden flex-col ${
-              mobilePane === 'preview' ? 'hidden md:flex' : 'flex'
+            className={`rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] overflow-hidden flex-col ${
+              mobilePane === 'console'
+                ? 'flex flex-1 h-full min-h-0'
+                : 'hidden md:flex md:h-44'
             }`}
           >
             <div className="flex items-center justify-between px-3 py-2 border-b border-slate-200 dark:border-white/[0.08] bg-slate-100 dark:bg-[#050811] text-xs font-mono">
