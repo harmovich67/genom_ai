@@ -42,15 +42,59 @@ export default function WorkbenchPage() {
     clearConsole,
     resetDefaults,
     runKey,
-    triggerRun
+    triggerRun,
+    autoRun
   } = useWorkbenchStore();
 
   const { addGenome } = useGenomeStore();
   const { addToast, theme } = useUIStore();
+  const editorRef = useRef(null);
 
   const [activeTab, setActiveTab] = useState('js'); // 'js' | 'html' | 'css' | 'json' | 'markdown'
   const [copied, setCopied] = useState(false);
   const [mobilePane, setMobilePane] = useState('editor'); // 'editor' | 'preview' | 'console'
+  const [editorMode, setEditorMode] = useState(
+    typeof window !== 'undefined' && window.innerWidth < 768 ? 'simple' : 'monaco'
+  );
+
+  // Debounced auto-run to update preview without stealing editor focus
+  useEffect(() => {
+    if (!autoRun) return;
+    const timer = setTimeout(() => {
+      triggerRun();
+    }, 700);
+    return () => clearTimeout(timer);
+  }, [html, css, js, autoRun, triggerRun]);
+
+  const getCurrentCode = () => {
+    switch (activeTab) {
+      case 'html': return html;
+      case 'css': return css;
+      case 'json': return json;
+      case 'markdown': return markdown;
+      default: return js;
+    }
+  };
+
+  const getCurrentLanguage = () => {
+    switch (activeTab) {
+      case 'html': return 'html';
+      case 'css': return 'css';
+      case 'json': return 'json';
+      case 'markdown': return 'markdown';
+      default: return 'javascript';
+    }
+  };
+
+  const handleCodeChange = (newVal) => {
+    switch (activeTab) {
+      case 'html': setHtml(newVal); break;
+      case 'css': setCss(newVal); break;
+      case 'json': setJson(newVal); break;
+      case 'markdown': setMarkdown(newVal); break;
+      default: setJs(newVal); break;
+    }
+  };
 
   // Save As New Genome Version modal state
   const [showSaveModal, setShowSaveModal] = useState(false);
@@ -319,94 +363,64 @@ export default function WorkbenchPage() {
                 <span>Markdown</span>
               </button>
             </div>
-            <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0">Monaco Engine</span>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={() => setEditorMode(editorMode === 'monaco' ? 'simple' : 'monaco')}
+                className={`px-2 py-0.5 rounded text-[11px] font-mono border transition-all cursor-pointer ${
+                  editorMode === 'monaco'
+                    ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 font-semibold'
+                    : 'bg-slate-200 dark:bg-white/[0.06] text-slate-700 dark:text-slate-300 border-slate-300 dark:border-white/[0.1]'
+                }`}
+                title="التبديل بين محرر Monaco ومحرر النصوص المباشر"
+              >
+                {editorMode === 'monaco' ? '⚡ Monaco' : '📝 Native'}
+              </button>
+            </div>
           </div>
 
-          {/* Monaco Editor Container */}
-          <div className="flex-1 min-h-[300px] dir-ltr text-left">
-            {activeTab === 'js' && (
+          {/* Monaco / Code Editor Container */}
+          <div dir="ltr" className="flex-1 min-h-[340px] h-full text-left relative overflow-hidden bg-white dark:bg-[#07090e]">
+            {editorMode === 'monaco' ? (
               <Editor
                 height="100%"
                 theme={theme === 'dark' ? 'vs-dark' : 'light'}
-                language="javascript"
-                value={js}
-                onChange={(val) => setJs(val || '')}
+                language={getCurrentLanguage()}
+                value={getCurrentCode()}
+                onChange={(val) => handleCodeChange(val || '')}
+                onMount={(editor) => {
+                  editorRef.current = editor;
+                  editor.updateOptions({ readOnly: false });
+                }}
+                loading={
+                  <div className="h-full flex items-center justify-center text-slate-400 font-mono text-xs">
+                    جاري تحميل المحرر...
+                  </div>
+                }
                 options={{
                   fontSize: 13,
-                  fontFamily: 'JetBrains Mono, monospace',
+                  fontFamily: 'JetBrains Mono, "Fira Code", monospace',
                   minimap: { enabled: false },
                   scrollBeyondLastLine: false,
                   wordWrap: 'on',
-                  automaticLayout: true
+                  automaticLayout: true,
+                  tabSize: 2,
+                  readOnly: false,
+                  domReadOnly: false,
+                  cursorBlinking: 'smooth',
+                  lineNumbers: 'on',
+                  quickSuggestions: true,
+                  suggestOnTriggerCharacters: true
                 }}
               />
-            )}
-            {activeTab === 'html' && (
-              <Editor
-                height="100%"
-                theme={theme === 'dark' ? 'vs-dark' : 'light'}
-                language="html"
-                value={html}
-                onChange={(val) => setHtml(val || '')}
-                options={{
-                  fontSize: 13,
-                  fontFamily: 'JetBrains Mono, monospace',
-                  minimap: { enabled: false },
-                  scrollBeyondLastLine: false,
-                  wordWrap: 'on',
-                  automaticLayout: true
-                }}
-              />
-            )}
-            {activeTab === 'css' && (
-              <Editor
-                height="100%"
-                theme={theme === 'dark' ? 'vs-dark' : 'light'}
-                language="css"
-                value={css}
-                onChange={(val) => setCss(val || '')}
-                options={{
-                  fontSize: 13,
-                  fontFamily: 'JetBrains Mono, monospace',
-                  minimap: { enabled: false },
-                  scrollBeyondLastLine: false,
-                  wordWrap: 'on',
-                  automaticLayout: true
-                }}
-              />
-            )}
-            {activeTab === 'json' && (
-              <Editor
-                height="100%"
-                theme={theme === 'dark' ? 'vs-dark' : 'light'}
-                language="json"
-                value={json}
-                onChange={(val) => setJson(val || '')}
-                options={{
-                  fontSize: 13,
-                  fontFamily: 'JetBrains Mono, monospace',
-                  minimap: { enabled: false },
-                  scrollBeyondLastLine: false,
-                  wordWrap: 'on',
-                  automaticLayout: true
-                }}
-              />
-            )}
-            {activeTab === 'markdown' && (
-              <Editor
-                height="100%"
-                theme={theme === 'dark' ? 'vs-dark' : 'light'}
-                language="markdown"
-                value={markdown}
-                onChange={(val) => setMarkdown(val || '')}
-                options={{
-                  fontSize: 13,
-                  fontFamily: 'JetBrains Mono, monospace',
-                  minimap: { enabled: false },
-                  scrollBeyondLastLine: false,
-                  wordWrap: 'on',
-                  automaticLayout: true
-                }}
+            ) : (
+              <textarea
+                dir="ltr"
+                value={getCurrentCode()}
+                onChange={(e) => handleCodeChange(e.target.value)}
+                placeholder="// اكتب أو الصق كودك هنا..."
+                className="w-full h-full p-4 font-mono text-xs leading-relaxed bg-transparent text-slate-900 dark:text-slate-100 resize-none outline-none focus:ring-0 border-none selection:bg-emerald-500/20"
+                spellCheck={false}
               />
             )}
           </div>

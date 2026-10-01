@@ -165,11 +165,12 @@ export default function NewGenomeModal() {
                 </button>
               </div>
               <textarea
+                dir="ltr"
                 rows={6}
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="// الصق كود React, Node.js, Salla, CSS, SQL هنا..."
-                className="w-full p-3 rounded-xl bg-slate-900 border border-slate-700 text-xs font-mono text-slate-100 placeholder-slate-400 outline-none focus:border-emerald-500/50 transition-colors dir-ltr text-left"
+                className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-mono text-slate-900 dark:text-slate-100 placeholder-slate-400 outline-none focus:border-emerald-500/50 transition-colors text-left"
                 required
               />
             </div>

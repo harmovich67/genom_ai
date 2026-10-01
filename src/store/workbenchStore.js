@@ -137,9 +137,9 @@ export const useWorkbenchStore = create((set, get) => ({
   autoRun: true,
   runKey: 1,
 
-  setHtml: (val) => set({ html: val, runKey: get().autoRun ? get().runKey + 1 : get().runKey }),
-  setCss: (val) => set({ css: val, runKey: get().autoRun ? get().runKey + 1 : get().runKey }),
-  setJs: (val) => set({ js: val, runKey: get().autoRun ? get().runKey + 1 : get().runKey }),
+  setHtml: (val) => set({ html: val }),
+  setCss: (val) => set({ css: val }),
+  setJs: (val) => set({ js: val }),
   setJson: (val) => set({ json: val }),
   setMarkdown: (val) => set({ markdown: val }),
   setActiveLanguage: (lang) => set({ activeLanguage: lang }),
