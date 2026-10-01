@@ -89,6 +89,24 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Completely hide Monaco mobile iPad/touch keyboard icon overlay and accessibility widget */
+  .monaco-editor .iPadShowKeyboard,
+  .monaco-editor .accessibility-help-widget,
+  .monaco-editor [class*="iPadShowKeyboard"],
+  .monaco-editor [aria-label*="accessibility"] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
 }
 
 /* Glassmorphism utilities */
