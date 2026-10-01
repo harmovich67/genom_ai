@@ -693,53 +693,56 @@ export default function WorkbenchPage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-50 bg-white dark:bg-[#07090E] flex flex-col w-screen h-screen overflow-hidden"
+            className="fixed inset-0 z-50 bg-white dark:bg-[#07090E] flex flex-col w-full h-[100dvh] overflow-hidden"
           >
             {/* Fullscreen Header Control Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0D121F] shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-1.5 sm:gap-3 px-2 sm:px-4 py-2 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0D121F] shrink-0">
+              {/* Left / Right (Brand & Language Tabs) */}
+              <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+                <div className="hidden md:flex items-center gap-2 shrink-0">
                   <div className="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
                     <Code className="w-4 h-4" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
-                    محرر الأكواد | وضع ملء الشاشة الفائق
+                  <span className="font-heading font-bold text-xs sm:text-sm text-slate-900 dark:text-white whitespace-nowrap">
+                    محرر الأكواد
                   </span>
                 </div>
 
-                {/* Language Tabs in Fullscreen */}
-                <div className="flex items-center gap-1 bg-slate-200/60 dark:bg-white/[0.04] p-1 rounded-xl">
+                {/* Language Tabs in Fullscreen (Scrollable pills on mobile) */}
+                <div className="flex items-center gap-0.5 sm:gap-1 bg-slate-200/70 dark:bg-white/[0.05] p-0.5 sm:p-1 rounded-xl overflow-x-auto no-scrollbar max-w-[130px] sm:max-w-none shrink">
                   {['js', 'html', 'css', 'json', 'markdown'].map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                      className={`px-2 py-1 rounded-lg text-[10px] sm:text-xs font-mono transition-all shrink-0 cursor-pointer ${
                         activeTab === tab
                           ? 'bg-emerald-600 text-white font-bold shadow-glow-emerald'
                           : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                       }`}
                     >
-                      {tab.toUpperCase()}
+                      {tab === 'markdown' ? 'MD' : tab.toUpperCase()}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Fullscreen Actions */}
-              <div className="flex items-center gap-2">
+              {/* Actions Controls (Always 1 clean row) */}
+              <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                 {/* Font Size Adjusters */}
-                <div className="flex items-center gap-1 px-2 py-1 rounded-xl bg-slate-200/60 dark:bg-white/[0.04] text-xs font-mono">
+                <div className="flex items-center gap-0.5 px-1.5 py-1 rounded-xl bg-slate-200/70 dark:bg-white/[0.05] text-[10px] sm:text-xs font-mono">
                   <button
-                    onClick={() => setFontSize(Math.max(11, fontSize - 1))}
-                    className="w-5 h-5 flex items-center justify-center rounded hover:bg-black/10 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 cursor-pointer"
+                    onClick={() => setFontSize(Math.max(10, fontSize - 1))}
+                    className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center rounded hover:bg-black/10 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 cursor-pointer"
                     title="تصغير الخط"
                   >
                     -
                   </button>
-                  <span className="px-1 text-[11px] text-slate-700 dark:text-slate-300">{fontSize}px</span>
+                  <span className="px-0.5 sm:px-1 text-[10px] sm:text-[11px] text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                    {fontSize}px
+                  </span>
                   <button
                     onClick={() => setFontSize(Math.min(24, fontSize + 1))}
-                    className="w-5 h-5 flex items-center justify-center rounded hover:bg-black/10 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 cursor-pointer"
+                    className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center rounded hover:bg-black/10 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300 cursor-pointer"
                     title="تكبير الخط"
                   >
                     +
@@ -749,40 +752,44 @@ export default function WorkbenchPage() {
                 {/* Editor Engine Toggle */}
                 <button
                   onClick={() => setEditorMode(editorMode === 'monaco' ? 'simple' : 'monaco')}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-mono border transition-all cursor-pointer ${
+                  className={`px-2 py-1 rounded-xl text-[10px] sm:text-xs font-mono border transition-all cursor-pointer flex items-center gap-1 ${
                     editorMode === 'monaco'
                       ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 font-semibold'
                       : 'bg-slate-200 dark:bg-white/[0.06] text-slate-700 dark:text-slate-300 border-slate-300 dark:border-white/[0.1]'
                   }`}
+                  title="التبديل بين Monaco والمحرر البسيط"
                 >
-                  {editorMode === 'monaco' ? '⚡ Monaco' : '📝 Native'}
+                  <span>{editorMode === 'monaco' ? '⚡' : '📝'}</span>
+                  <span className="hidden sm:inline">{editorMode === 'monaco' ? 'Monaco' : 'Native'}</span>
                 </button>
 
+                {/* Quick Run */}
                 <button
                   onClick={triggerRun}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-glow-emerald transition-all cursor-pointer"
+                  className="w-8 h-8 sm:w-auto sm:px-3 sm:py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-glow-emerald flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   title="تشغيل الكود في المعاينة"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>تشغيل (Run)</span>
+                  <span className="hidden sm:inline">تشغيل</span>
                 </button>
 
+                {/* Copy */}
                 <button
                   onClick={handleCopyCurrent}
-                  className="p-1.5 rounded-xl bg-slate-200/80 hover:bg-slate-300 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
+                  className="w-8 h-8 sm:w-auto sm:p-1.5 rounded-xl bg-slate-200/80 hover:bg-slate-300 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 flex items-center justify-center transition-colors cursor-pointer"
                   title="نسخ الكود"
                 >
-                  {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                  {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
 
                 {/* Exit Fullscreen Button */}
                 <button
                   onClick={() => setIsFullscreen(false)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-600 dark:text-rose-400 font-bold text-xs transition-all cursor-pointer"
+                  className="w-8 h-8 sm:w-auto sm:px-3 sm:py-1.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-600 dark:text-rose-400 font-bold text-xs flex items-center justify-center gap-1 transition-all cursor-pointer"
                   title="الخروج من ملء الشاشة (Esc)"
                 >
                   <Minimize2 className="w-4 h-4" />
-                  <span>خروج (Esc)</span>
+                  <span className="hidden sm:inline">خروج</span>
                 </button>
               </div>
             </div>
@@ -816,7 +823,9 @@ export default function WorkbenchPage() {
                   options={{
                     fontSize: fontSize,
                     fontFamily: 'JetBrains Mono, "Fira Code", monospace',
-                    minimap: { enabled: true },
+                    minimap: { enabled: typeof window !== 'undefined' && window.innerWidth >= 768 },
+                    lineNumbersMinChars: 3,
+                    lineDecorationsWidth: 0,
                     scrollBeyondLastLine: false,
                     wordWrap: 'on',
                     automaticLayout: true,
@@ -836,15 +845,15 @@ export default function WorkbenchPage() {
                   onChange={(e) => handleCodeChange(e.target.value)}
                   placeholder="// اكتب أو الصق كودك هنا..."
                   style={{ fontSize: `${fontSize}px` }}
-                  className="w-full h-full p-6 font-mono leading-relaxed bg-transparent text-slate-900 dark:text-slate-100 resize-none outline-none focus:ring-0 border-none selection:bg-emerald-500/20"
+                  className="w-full h-full p-3 sm:p-6 font-mono leading-relaxed bg-transparent text-slate-900 dark:text-slate-100 resize-none outline-none focus:ring-0 border-none selection:bg-emerald-500/20"
                   spellCheck={false}
                 />
               )}
             </div>
 
             {/* Fullscreen Footer Status */}
-            <div className="px-4 py-1.5 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0D121F] flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 shrink-0">
-              <div className="flex items-center gap-3">
+            <div className="px-3 sm:px-4 py-2 sm:py-1.5 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0D121F] flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 shrink-0">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <span className="text-emerald-600 dark:text-emerald-400 font-bold uppercase">
                   {getCurrentLanguage()}
                 </span>
@@ -854,7 +863,7 @@ export default function WorkbenchPage() {
                 <span>{getCurrentCode().length} حرف</span>
               </div>
               <span className="hidden sm:inline text-[10px] text-slate-400">
-                اضغط مفتاح ESC أو زر الخروج للعودة إلى وضع النوافذ
+                اضغط مفتاح ESC أو زر الخروج للعودة
               </span>
             </div>
           </motion.div>
