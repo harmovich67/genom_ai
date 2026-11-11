@@ -21,6 +21,7 @@ import {
   FolderGit2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import TabBar from './TabBar';
 
 export default function GenomeDetailModal() {
   const { activeModal, modalData, closeModal, setPage, addToast } = useUIStore();
@@ -63,7 +64,7 @@ export default function GenomeDetailModal() {
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="w-full max-w-4xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[92vh] overflow-hidden my-auto"
+          className="w-full max-w-4xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[92dvh] overflow-hidden my-auto"
         >
           {/* Modal Header */}
           <div className="p-5 border-b border-slate-200 dark:border-white/[0.08] flex items-start justify-between gap-4">
@@ -127,49 +128,18 @@ export default function GenomeDetailModal() {
           </div>
 
           {/* Modal Navigation Tabs */}
-          <div className="flex items-center gap-2 px-5 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/20 text-xs font-medium">
-            <button
-              onClick={() => setActiveTab('code')}
-              className={`py-3 px-3 border-b-2 transition-all cursor-pointer ${
-                activeTab === 'code'
-                  ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-                  : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-              }`}
-            >
-              الكود والحل العملي
-            </button>
-            <button
-              onClick={() => setActiveTab('dna')}
-              className={`py-3 px-3 border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'dna'
-                  ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-                  : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              جينوم المعرفة (DNA Analysis)
-            </button>
-            <button
-              onClick={() => setActiveTab('context')}
-              className={`py-3 px-3 border-b-2 transition-all cursor-pointer ${
-                activeTab === 'context'
-                  ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-                  : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-              }`}
-            >
-              متى يستخدم وتفاصيل السياق
-            </button>
-            <button
-              onClick={() => setActiveTab('security')}
-              className={`py-3 px-3 border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'security'
-                  ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-                  : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-              }`}
-            >
-              الأداء والأمان
-            </button>
-          </div>
+          <TabBar
+            accent="emerald"
+            active={activeTab}
+            onChange={setActiveTab}
+            className="px-3 bg-slate-50 dark:bg-black/20 shrink-0"
+            tabs={[
+              { id: 'code', label: 'الكود والحل العملي' },
+              { id: 'dna', label: 'جينوم المعرفة (DNA Analysis)', icon: Sparkles },
+              { id: 'context', label: 'متى يستخدم وتفاصيل السياق' },
+              { id: 'security', label: 'الأداء والأمان' },
+            ]}
+          />
 
           {/* Tab Content */}
           <div className="flex-1 overflow-y-auto p-5 space-y-5">
@@ -232,7 +202,7 @@ export default function GenomeDetailModal() {
             {activeTab === 'dna' && (
               <div className="space-y-4 text-xs">
                 {/* AI Explanation Banner */}
-                <div className="p-4 rounded-xl bg-purple-50 dark:bg-gradient-to-r dark:from-purple-500/10 dark:via-cyan-500/10 dark:to-transparent border border-purple-200 dark:border-purple-500/30">
+                <div className="p-4 rounded-xl bg-purple-50 dark:bg-transparent dark:bg-gradient-to-r dark:from-purple-500/10 dark:via-cyan-500/10 dark:to-transparent border border-purple-200 dark:border-purple-500/30">
                   <div className="flex items-center gap-2 text-purple-800 dark:text-purple-400 font-semibold mb-2">
                     <Sparkles className="w-4 h-4" />
                     <span>تحليل جينوم الذكاء الاصطناعي (AI-Generated DNA)</span>

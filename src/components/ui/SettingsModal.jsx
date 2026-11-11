@@ -21,6 +21,7 @@ import {
   Check
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import TabBar from './TabBar';
 
 export default function SettingsModal() {
   const {
@@ -154,7 +155,7 @@ export default function SettingsModal() {
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="w-full max-w-3xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[88vh] overflow-hidden my-auto"
+          className="w-full max-w-3xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[88dvh] overflow-hidden my-auto"
         >
           {/* Header */}
           <div className="p-4 border-b border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
@@ -176,40 +177,18 @@ export default function SettingsModal() {
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex items-center gap-2 px-4 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/20 text-xs font-medium">
-            <button
-              onClick={() => setActiveTab('general')}
-              className={`py-3 px-3 border-b-2 transition-all cursor-pointer ${
-                activeTab === 'general' ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold' : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              عام والمظهر
-            </button>
-            <button
-              onClick={() => setActiveTab('ai')}
-              className={`py-3 px-3 border-b-2 transition-all cursor-pointer ${
-                activeTab === 'ai' ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold' : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              الذكاء الاصطناعي (Gemini)
-            </button>
-            <button
-              onClick={() => setActiveTab('data')}
-              className={`py-3 px-3 border-b-2 transition-all cursor-pointer ${
-                activeTab === 'data' ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold' : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              البيانات والتصدير
-            </button>
-            <button
-              onClick={() => setActiveTab('shortcuts')}
-              className={`py-3 px-3 border-b-2 transition-all cursor-pointer ${
-                activeTab === 'shortcuts' ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold' : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              اختصارات المفاتيح
-            </button>
-          </div>
+          <TabBar
+            accent="emerald"
+            active={activeTab}
+            onChange={setActiveTab}
+            className="px-3 bg-slate-50 dark:bg-black/20 shrink-0"
+            tabs={[
+              { id: 'general', label: 'عام والمظهر' },
+              { id: 'ai', label: 'الذكاء الاصطناعي (Gemini)' },
+              { id: 'data', label: 'البيانات والتصدير' },
+              { id: 'shortcuts', label: 'اختصارات المفاتيح' },
+            ]}
+          />
 
           {/* Content */}
           <div className="flex-1 overflow-y-auto p-5 space-y-4 text-xs">

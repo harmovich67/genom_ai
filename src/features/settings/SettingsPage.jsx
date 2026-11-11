@@ -22,6 +22,7 @@ import {
   Sliders,
   CheckCircle2
 } from 'lucide-react';
+import TabBar from '../../components/ui/TabBar';
 
 export default function SettingsPage() {
   const {
@@ -153,49 +154,17 @@ export default function SettingsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-white/[0.08] text-xs font-medium">
-        <button
-          onClick={() => setActiveTab('general')}
-          className={`py-3 px-4 border-b-2 transition-all cursor-pointer ${
-            activeTab === 'general'
-              ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-              : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          عام والمظهر
-        </button>
-        <button
-          onClick={() => setActiveTab('ai')}
-          className={`py-3 px-4 border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
-            activeTab === 'ai'
-              ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-              : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>الذكاء الاصطناعي (Gemini)</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('data')}
-          className={`py-3 px-4 border-b-2 transition-all cursor-pointer ${
-            activeTab === 'data'
-              ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-              : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          البيانات والنسخ الاحتياطي
-        </button>
-        <button
-          onClick={() => setActiveTab('shortcuts')}
-          className={`py-3 px-4 border-b-2 transition-all cursor-pointer ${
-            activeTab === 'shortcuts'
-              ? 'border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-              : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          اختصارات لوحة المفاتيح
-        </button>
-      </div>
+      <TabBar
+        accent="emerald"
+        active={activeTab}
+        onChange={setActiveTab}
+        tabs={[
+          { id: 'general', label: 'عام والمظهر' },
+          { id: 'ai', label: 'الذكاء الاصطناعي (Gemini)', icon: Sparkles },
+          { id: 'data', label: 'البيانات والنسخ الاحتياطي' },
+          { id: 'shortcuts', label: 'اختصارات لوحة المفاتيح' },
+        ]}
+      />
 
       {/* Tab 1: General */}
       {activeTab === 'general' && (

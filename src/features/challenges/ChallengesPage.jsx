@@ -450,7 +450,7 @@ export default function ChallengesPage() {
       {/* TAB 3: SIGNATURE FEATURE: BUILD FROM MEMORY */}
       {activeTab === 'build' && (
         <div className="space-y-6">
-          <div className="p-5 rounded-2xl bg-cyan-50/70 dark:bg-gradient-to-r dark:from-cyan-500/15 dark:via-purple-500/10 dark:to-emerald-500/10 border border-cyan-200 dark:border-cyan-500/30 text-xs text-slate-700 dark:text-slate-200 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="p-5 rounded-2xl bg-cyan-50/70 dark:bg-transparent dark:bg-gradient-to-r dark:from-cyan-500/15 dark:via-purple-500/10 dark:to-emerald-500/10 border border-cyan-200 dark:border-cyan-500/30 text-xs text-slate-700 dark:text-slate-200 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1">
               <span className="font-mono text-[10px] text-cyan-700 dark:text-cyan-400 font-bold uppercase tracking-wider">
                 SIGNATURE FEATURE: BUILD FROM MEMORY

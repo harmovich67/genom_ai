@@ -346,63 +346,63 @@ export default function KnowledgeGraph() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto text-[11px] font-medium">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full text-[11px] font-medium">
           <button
             onClick={() => setActiveFilter('all')}
-            className={`px-3 py-1 rounded-xl transition-all ${
+            className={`px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 cursor-pointer transition-all ${
               activeFilter === 'all'
                 ? 'bg-purple-600 text-white font-bold shadow-glow-purple'
-                : 'bg-white/[0.04] text-slate-300 hover:text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-white'
             }`}
           >
             الكل ({initialNodes.length})
           </button>
           <button
             onClick={() => setActiveFilter('snippet')}
-            className={`px-3 py-1 rounded-xl transition-all ${
+            className={`px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 cursor-pointer transition-all ${
               activeFilter === 'snippet'
                 ? 'bg-emerald-600 text-white font-bold'
-                : 'bg-white/[0.04] text-slate-300 hover:text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-white'
             }`}
           >
             الجينومات
           </button>
           <button
             onClick={() => setActiveFilter('concept')}
-            className={`px-3 py-1 rounded-xl transition-all ${
+            className={`px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 cursor-pointer transition-all ${
               activeFilter === 'concept'
                 ? 'bg-cyan-600 text-white font-bold'
-                : 'bg-white/[0.04] text-slate-300 hover:text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-white'
             }`}
           >
             المفاهيم
           </button>
           <button
             onClick={() => setActiveFilter('tech')}
-            className={`px-3 py-1 rounded-xl transition-all ${
+            className={`px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 cursor-pointer transition-all ${
               activeFilter === 'tech'
                 ? 'bg-purple-600 text-white font-bold'
-                : 'bg-white/[0.04] text-slate-300 hover:text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-white'
             }`}
           >
             التقنيات
           </button>
           <button
             onClick={() => setActiveFilter('project')}
-            className={`px-3 py-1 rounded-xl transition-all ${
+            className={`px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 cursor-pointer transition-all ${
               activeFilter === 'project'
                 ? 'bg-amber-600 text-white font-bold'
-                : 'bg-white/[0.04] text-slate-300 hover:text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-white'
             }`}
           >
             المشاريع
           </button>
           <button
             onClick={() => setActiveFilter('bug')}
-            className={`px-3 py-1 rounded-xl transition-all ${
+            className={`px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 cursor-pointer transition-all ${
               activeFilter === 'bug'
                 ? 'bg-rose-600 text-white font-bold'
-                : 'bg-white/[0.04] text-slate-300 hover:text-white'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-white'
             }`}
           >
             الأخطاء المحلولة

@@ -22,6 +22,7 @@ import {
   Clock,
   Milestone
 } from 'lucide-react';
+import TabBar from '../../components/ui/TabBar';
 
 export default function ProjectsPage() {
   const {
@@ -170,7 +171,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Selected Project Main Card */}
-      <div className="p-6 rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-5">
+      <div className="p-4 sm:p-6 rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-5">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/[0.08] pb-5">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -216,66 +217,19 @@ export default function ProjectsPage() {
         </div>
 
         {/* Project Navigation Tabs */}
-        <div className="flex items-center gap-2 border-b border-white/[0.08] pt-2 text-xs font-medium">
-          <button
-            onClick={() => setActiveProjectTab('overview')}
-            className={`py-2.5 px-3 border-b-2 transition-all ${
-              activeProjectTab === 'overview'
-                ? 'border-purple-500 text-purple-400 font-semibold'
-                : 'border-transparent text-slate-400 hover:text-white'
-            }`}
-          >
-            نظرة عامة والمعمارية
-          </button>
-          <button
-            onClick={() => setActiveProjectTab('tasks')}
-            className={`py-2.5 px-3 border-b-2 transition-all flex items-center gap-1.5 ${
-              activeProjectTab === 'tasks'
-                ? 'border-purple-500 text-purple-400 font-semibold'
-                : 'border-transparent text-slate-400 hover:text-white'
-            }`}
-          >
-            <span>المهام والأهداف</span>
-            <span className="px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-white/[0.08]">
-              {project.tasks?.length}
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveProjectTab('adr')}
-            className={`py-2.5 px-3 border-b-2 transition-all flex items-center gap-1.5 ${
-              activeProjectTab === 'adr'
-                ? 'border-purple-500 text-purple-400 font-semibold'
-                : 'border-transparent text-slate-400 hover:text-white'
-            }`}
-          >
-            <span>سجل القرارات (ADR)</span>
-            <span className="px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-purple-500/20 text-purple-300">
-              {projectDecisions.length}
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveProjectTab('timeline')}
-            className={`py-2.5 px-3 border-b-2 transition-all flex items-center gap-1.5 ${
-              activeProjectTab === 'timeline'
-                ? 'border-purple-500 text-purple-400 font-semibold'
-                : 'border-transparent text-slate-400 hover:text-white'
-            }`}
-          >
-            <Clock className="w-3.5 h-3.5 text-amber-400" />
-            <span>الجدول الزمني والمراحل</span>
-          </button>
-          <button
-            onClick={() => setActiveProjectTab('memoryChat')}
-            className={`py-2.5 px-3 border-b-2 transition-all flex items-center gap-1.5 ${
-              activeProjectTab === 'memoryChat'
-                ? 'border-purple-500 text-purple-400 font-semibold'
-                : 'border-transparent text-slate-400 hover:text-white'
-            }`}
-          >
-            <Bot className="w-3.5 h-3.5 text-cyan-400" />
-            <span>مستشار ذاكرة المشروع (AI Memory)</span>
-          </button>
-        </div>
+        <TabBar
+          accent="purple"
+          active={activeProjectTab}
+          onChange={setActiveProjectTab}
+          className="pt-2"
+          tabs={[
+            { id: 'overview', label: 'نظرة عامة والمعمارية' },
+            { id: 'tasks', label: 'المهام والأهداف', badge: project.tasks?.length ?? 0 },
+            { id: 'adr', label: 'سجل القرارات (ADR)', badge: projectDecisions.length },
+            { id: 'timeline', label: 'الجدول الزمني والمراحل', icon: Clock },
+            { id: 'memoryChat', label: 'مستشار ذاكرة المشروع (AI Memory)', icon: Bot },
+          ]}
+        />
 
         {/* Tab 1: Overview & Architecture */}
         {activeProjectTab === 'overview' && (

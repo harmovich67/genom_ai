@@ -67,7 +67,7 @@ export default function NewProjectModal() {
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="w-full max-w-2xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden my-auto"
+          className="w-full max-w-2xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[90dvh] overflow-hidden my-auto"
         >
           {/* Header */}
           <div className="p-4 border-b border-slate-200 dark:border-white/[0.08] flex items-center justify-between">

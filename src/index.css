@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --bg-primary: #F8FAFC;
     --surface-primary: #FFFFFF;
     --card-primary: #FFFFFF;
@@ -11,6 +12,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --bg-primary: #07090E;
     --surface-primary: #0D121F;
     --card-primary: #12192B;
@@ -113,6 +115,18 @@
     position: absolute !important;
     left: -9999px !important;
   }
+}
+
+/* Force left-to-right layout (code blocks, graph canvas) inside the RTL app.
+   Without this, punctuation such as ; { } ( ) jumps to the wrong end of code lines. */
+.dir-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Bottom bars: keep clear of the iOS home indicator / Android gesture bar */
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
 }
 
 /* Glassmorphism utilities */

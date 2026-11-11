@@ -17,7 +17,7 @@ export default function GenomeMatchBanner() {
         initial={{ opacity: 0, y: -12, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -12, scale: 0.98 }}
-        className="w-full mb-6 p-4 rounded-2xl bg-emerald-50/80 dark:bg-gradient-to-r dark:from-emerald-500/15 dark:via-purple-500/10 dark:to-cyan-500/15 border border-emerald-200 dark:border-emerald-500/30 shadow-tactile relative overflow-hidden"
+        className="w-full mb-6 p-4 rounded-2xl bg-emerald-50/80 dark:bg-transparent dark:bg-gradient-to-r dark:from-emerald-500/15 dark:via-purple-500/10 dark:to-cyan-500/15 border border-emerald-200 dark:border-emerald-500/30 shadow-tactile relative overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3">

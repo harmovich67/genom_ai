@@ -64,7 +64,7 @@ export default function AIMentorPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8.5rem)] space-y-3 pb-8">
+    <div className="flex flex-col h-[calc(100dvh-8.5rem)] space-y-3 pb-8">
       {/* Header & Modes Bar */}
       <div className="p-3.5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-3 shrink-0">
         <div className="flex items-center justify-between">

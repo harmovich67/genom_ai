@@ -137,7 +137,7 @@ export default function CommandPalette() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: -10 }}
           transition={{ duration: 0.15 }}
-          className="w-full max-w-2xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
+          className="w-full max-w-2xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl overflow-hidden flex flex-col max-h-[80dvh]"
         >
           {/* Search Header */}
           <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08]">

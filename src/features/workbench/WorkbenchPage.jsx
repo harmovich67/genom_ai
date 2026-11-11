@@ -272,7 +272,7 @@ export default function WorkbenchPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-10rem)] md:h-[calc(100vh-8.5rem)] space-y-3 pb-8">
+    <div className="flex flex-col min-h-[calc(100dvh-10rem)] md:h-[calc(100dvh-8.5rem)] space-y-3 pb-8">
       {/* Workbench Toolbar */}
       <div className="flex items-center justify-between gap-2 p-2.5 sm:p-3 rounded-2xl glass-panel shrink-0">
         <div className="flex items-center gap-2">
@@ -377,7 +377,7 @@ export default function WorkbenchPage() {
         {/* LEFT / CODE EDITOR PANE */}
         <div
           className={`flex-col rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] overflow-hidden min-h-0 ${
-            mobilePane === 'editor' ? 'flex h-[calc(100vh-17.5rem)] md:h-auto' : 'hidden md:flex'
+            mobilePane === 'editor' ? 'flex h-[calc(100dvh-17.5rem)] md:h-auto' : 'hidden md:flex'
           }`}
         >
           {/* Editor Language Tabs (JS, HTML, CSS, JSON, Markdown) */}
@@ -524,7 +524,7 @@ export default function WorkbenchPage() {
         {/* RIGHT / PREVIEW & CONSOLE PANE */}
         <div
           className={`flex-col gap-3 min-h-0 ${
-            mobilePane !== 'editor' ? 'flex h-[calc(100vh-17.5rem)] md:h-auto' : 'hidden md:flex'
+            mobilePane !== 'editor' ? 'flex h-[calc(100dvh-17.5rem)] md:h-auto' : 'hidden md:flex'
           }`}
         >
           {/* Live Preview / Render Window */}
