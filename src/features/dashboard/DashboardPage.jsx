@@ -70,18 +70,18 @@ export default function DashboardPage() {
   const sampleForgottenGenome = genomes[1] || genomes[0];
 
   return (
-    <div className="space-y-8 pb-16">
+    <div className="space-y-6 sm:space-y-8 pb-16">
       {/* Hero Command Center Header */}
-      <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-purple-500/10 to-cyan-500/10 border border-slate-200 dark:border-white/[0.08] shadow-tactile overflow-hidden">
+      <div className="relative p-5 sm:p-8 rounded-[1.75rem] sm:rounded-3xl bg-gradient-to-r from-emerald-500/10 via-purple-500/10 to-cyan-500/10 border border-slate-200 dark:border-white/[0.08] shadow-tactile overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="relative z-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 sm:gap-6">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+              <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold whitespace-nowrap bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
                 <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                 سلسلة تعلم متواصلة: 14 يوماً
               </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+              <span className="text-xs text-slate-600 dark:text-slate-400 font-mono whitespace-nowrap">
                 {new Date().toLocaleDateString('ar-SA', { weekday: 'long', day: 'numeric', month: 'long' })}
               </span>
             </div>
@@ -89,7 +89,7 @@ export default function DashboardPage() {
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight font-heading">
               {lang === 'ar' ? 'مساء الخير، هرم.' : 'Good evening, Glitch.'}
             </h1>
-            <p className="text-slate-600 dark:text-slate-300 text-sm mt-1 max-w-xl leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-xl leading-relaxed">
               {lang === 'ar'
                 ? 'جاهز تكمل من حيث توقفت؟ لديك 3 أنماط برمجية مقترحة للمراجعة ومشروع نشط بإنجاز 78%.'
                 : 'Ready to continue where you left off? You have 3 patterns to review and an active project at 78%.'}
@@ -97,19 +97,19 @@ export default function DashboardPage() {
           </div>
 
           {/* Quick Hero CTAs */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
             <button
               onClick={() => setPage('workbench')}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-glow-emerald transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-glow-emerald transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <Terminal className="w-4 h-4" />
               <span>فتح المختبر والتجربة</span>
             </button>
             <button
               onClick={() => openModal('newGenome')}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-white/[0.06] hover:bg-slate-100 dark:hover:bg-white/[0.12] text-slate-800 dark:text-white font-medium text-xs border border-slate-200 dark:border-white/[0.1] shadow-sm transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-xl bg-white dark:bg-white/[0.06] hover:bg-slate-100 dark:hover:bg-white/[0.12] text-slate-800 dark:text-white font-medium text-xs border border-slate-200 dark:border-white/[0.1] shadow-sm transition-all cursor-pointer"
             >
-              <Dna className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <Dna className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
               <span>إضافة كود جديد</span>
             </button>
           </div>
@@ -117,12 +117,12 @@ export default function DashboardPage() {
       </div>
 
       {/* TODAY'S FOCUS & CURRENT INTELLIGENCE HIGHLIGHTS (6 CORE SPEC REQUIREMENTS) */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-4">
         {/* 1. Today's Focus */}
-        <div className="p-5 rounded-2xl glass-panel border border-emerald-500/30 flex flex-col justify-between space-y-3">
+        <div className="p-5 sm:p-5 rounded-2xl glass-panel border border-emerald-500/30 flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+              <span className="text-[10px] font-mono uppercase font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                 <Target className="w-3.5 h-3.5" /> تركيز اليوم (Today's Focus)
               </span>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
@@ -136,7 +136,7 @@ export default function DashboardPage() {
           </div>
           <button
             onClick={() => setPage('projects')}
-            className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold hover:underline self-start cursor-pointer"
+            className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400 font-semibold hover:underline self-start cursor-pointer"
           >
             <span>فتح مساحة عمل المشروع</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -144,13 +144,13 @@ export default function DashboardPage() {
         </div>
 
         {/* 2. Weak Skill & Practice */}
-        <div className="p-5 rounded-2xl glass-panel border border-rose-500/30 flex flex-col justify-between space-y-3">
+        <div className="p-5 sm:p-5 rounded-2xl glass-panel border border-rose-500/30 flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-mono uppercase font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+              <span className="text-[10px] font-mono uppercase font-bold text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
                 <AlertCircle className="w-3.5 h-3.5" /> المهارة الأضعف (Weak Skill)
               </span>
-              <span className="text-[10px] font-mono text-slate-500">تحليل الأداء</span>
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">تحليل الأداء</span>
             </div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-snug">
               MySQL Indexing & SARGability في شروط الـ WHERE
@@ -161,7 +161,7 @@ export default function DashboardPage() {
           </div>
           <button
             onClick={() => setPage('challenges')}
-            className="flex items-center gap-1.5 text-xs text-rose-600 dark:text-rose-400 font-semibold hover:underline self-start cursor-pointer"
+            className="flex items-center gap-1.5 text-xs text-rose-700 dark:text-rose-400 font-semibold hover:underline self-start cursor-pointer"
           >
             <span>مراجعة المبدأ الهندسي وحل التحدي</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -169,13 +169,13 @@ export default function DashboardPage() {
         </div>
 
         {/* 3. AI Recommendation */}
-        <div className="p-5 rounded-2xl glass-panel border border-purple-500/30 flex flex-col justify-between space-y-3">
+        <div className="p-5 sm:p-5 rounded-2xl glass-panel border border-purple-500/30 flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-mono uppercase font-bold text-purple-600 dark:text-purple-400 flex items-center gap-1.5">
+              <span className="text-[10px] font-mono uppercase font-bold text-purple-700 dark:text-purple-400 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" /> توصية الذكاء الاصطناعي (AI Tip)
               </span>
-              <span className="text-[10px] font-mono text-purple-500 dark:text-purple-300">محدثة</span>
+              <span className="text-[10px] font-mono text-purple-700 dark:text-purple-300">محدثة</span>
             </div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-snug">
               "تحويل نمط Redis Distributed Lock إلى حزمة مشتركة لجميع المشاريع"
@@ -186,7 +186,7 @@ export default function DashboardPage() {
           </div>
           <button
             onClick={() => setPage('ai')}
-            className="flex items-center gap-1.5 text-xs text-purple-600 dark:text-purple-400 font-semibold hover:underline self-start cursor-pointer"
+            className="flex items-center gap-1.5 text-xs text-purple-700 dark:text-purple-400 font-semibold hover:underline self-start cursor-pointer"
           >
             <span>استشارة Genome AI في الهيكلة</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -203,7 +203,7 @@ export default function DashboardPage() {
               {lang === 'ar' ? 'نبضتك اليوم (Today\'s Developer Pulse)' : 'Today\'s Developer Pulse'}
             </h2>
           </div>
-          <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">مُولدة آلياً بناءً على مكتبتك ومشاريعك</span>
+          <span className="text-[11px] font-mono text-slate-600 dark:text-slate-400">مُولدة آلياً بناءً على مكتبتك ومشاريعك</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
@@ -211,10 +211,10 @@ export default function DashboardPage() {
           <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-emerald-500/40 shadow-sm dark:shadow-none transition-all glow-card-emerald flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-bold">
                   1. شيء لتتعلمه (Learn)
                 </span>
-                <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
               </div>
               <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors">
                 سلوك رندرة React في Server Components
@@ -225,7 +225,7 @@ export default function DashboardPage() {
             </div>
             <button
               onClick={() => setPage('ai')}
-              className="mt-3 flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium hover:underline self-start cursor-pointer"
+              className="mt-3 flex items-center gap-1 text-[11px] text-emerald-700 dark:text-emerald-400 font-medium hover:underline self-start cursor-pointer"
             >
               <span>استكشف المفهوم</span>
               <ArrowRight className="w-3 h-3" />
@@ -236,10 +236,10 @@ export default function DashboardPage() {
           <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-purple-500/40 shadow-sm dark:shadow-none transition-all glow-card-purple flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-700 dark:text-purple-400 font-bold">
                   2. شيء لتراجعه (Review)
                 </span>
-                <RotateCcw className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <RotateCcw className="w-4 h-4 text-purple-700 dark:text-purple-400" />
               </div>
               <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
                 تدوير مفاتيح JWT في Express
@@ -255,7 +255,7 @@ export default function DashboardPage() {
                   openModal('genomeDetail', genomes[2]);
                 }
               }}
-              className="mt-3 flex items-center gap-1 text-[11px] text-purple-600 dark:text-purple-400 font-medium hover:underline self-start cursor-pointer"
+              className="mt-3 flex items-center gap-1 text-[11px] text-purple-700 dark:text-purple-400 font-medium hover:underline self-start cursor-pointer"
             >
               <span>فتح الجينوم</span>
               <ArrowRight className="w-3 h-3" />
@@ -266,10 +266,10 @@ export default function DashboardPage() {
           <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-cyan-500/40 shadow-sm dark:shadow-none transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-700 dark:text-cyan-400 font-bold">
                   3. شيء لتبنيه (Build)
                 </span>
-                <Terminal className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                <Terminal className="w-4 h-4 text-cyan-700 dark:text-cyan-400" />
               </div>
               <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                 مكون نافذة منبثقة زجاجية Glass Modal
@@ -280,7 +280,7 @@ export default function DashboardPage() {
             </div>
             <button
               onClick={() => setPage('workbench')}
-              className="mt-3 flex items-center gap-1 text-[11px] text-cyan-600 dark:text-cyan-400 font-medium hover:underline self-start cursor-pointer"
+              className="mt-3 flex items-center gap-1 text-[11px] text-cyan-700 dark:text-cyan-400 font-medium hover:underline self-start cursor-pointer"
             >
               <span>بدء البناء في المختبر</span>
               <ArrowRight className="w-3 h-3" />
@@ -291,10 +291,10 @@ export default function DashboardPage() {
           <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-rose-500/40 shadow-sm dark:shadow-none transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-rose-600 dark:text-rose-400 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-rose-700 dark:text-rose-400 font-bold">
                   4. شيء لتصلحه (Fix)
                 </span>
-                <Bug className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                <Bug className="w-4 h-4 text-rose-700 dark:text-rose-400" />
               </div>
               <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-rose-600 dark:group-hover:text-rose-300 transition-colors">
                 قفل MySQL الميت في مسار الحجز
@@ -305,7 +305,7 @@ export default function DashboardPage() {
             </div>
             <button
               onClick={() => setPage('debug')}
-              className="mt-3 flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 font-medium hover:underline self-start cursor-pointer"
+              className="mt-3 flex items-center gap-1 text-[11px] text-rose-700 dark:text-rose-400 font-medium hover:underline self-start cursor-pointer"
             >
               <span>فحص في مختبر التصحيح</span>
               <ArrowRight className="w-3 h-3" />
@@ -316,10 +316,10 @@ export default function DashboardPage() {
           <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-amber-500/40 shadow-sm dark:shadow-none transition-all flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-700 dark:text-amber-400 font-bold">
                   5. شيء لتتذكره (Remember)
                 </span>
-                <Brain className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <Brain className="w-4 h-4 text-amber-700 dark:text-amber-400" />
               </div>
               <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
                 "لا تقرأ الـ rawBody بعد parse"
@@ -330,7 +330,7 @@ export default function DashboardPage() {
             </div>
             <button
               onClick={() => setPage('challenges')}
-              className="mt-3 flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-medium hover:underline self-start cursor-pointer"
+              className="mt-3 flex items-center gap-1 text-[11px] text-amber-700 dark:text-amber-400 font-medium hover:underline self-start cursor-pointer"
             >
               <span>سجل الذاكرة المعرفية</span>
               <ArrowRight className="w-3 h-3" />
@@ -345,10 +345,10 @@ export default function DashboardPage() {
         <div className="p-5 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-[#0D121F] dark:to-[#12192B] border border-amber-500/30 dark:border-white/[0.08] shadow-sm dark:shadow-tactile flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
                 الميزة الموقعة: المعرفة المنسية (Forgotten Knowledge)
               </span>
-              <Clock className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <Clock className="w-4 h-4 text-amber-700 dark:text-amber-400" />
             </div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               "حفظت حل: {sampleForgottenGenome?.title} قبل شهرين."
@@ -364,7 +364,7 @@ export default function DashboardPage() {
                 setSelectedGenome(sampleForgottenGenome);
                 openModal('genomeDetail', sampleForgottenGenome);
               }}
-              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-xs font-medium transition-all cursor-pointer"
+              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 text-xs font-medium transition-all cursor-pointer"
             >
               مراجعة سريعة
             </button>
@@ -377,7 +377,7 @@ export default function DashboardPage() {
             >
               اختبرني فيه الآن
             </button>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono mr-auto">تكرار متباعد: 3 أسابيع</span>
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono mr-auto">تكرار متباعد: 3 أسابيع</span>
           </div>
         </div>
 
@@ -385,10 +385,10 @@ export default function DashboardPage() {
         <div className="p-5 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-[#0D121F] dark:to-[#12192B] border border-purple-500/30 dark:border-white/[0.08] shadow-sm dark:shadow-tactile flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/30">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-purple-500/15 text-purple-700 dark:text-purple-400 border border-purple-500/30">
                 الميزة الموقعة: البناء من الذاكرة (Build From Memory)
               </span>
-              <Zap className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              <Zap className="w-4 h-4 text-purple-700 dark:text-purple-400" />
             </div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               "تحدي الاستدعاء النشط: خطاف useDebounce"
@@ -411,7 +411,7 @@ export default function DashboardPage() {
               <Zap className="w-3.5 h-3.5" />
               <span>خوض التحدي (5 دقائق)</span>
             </button>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono">+50 نقطة جينوم</span>
+            <span className="text-[10px] text-slate-600 dark:text-slate-400 font-mono">+50 نقطة جينوم</span>
           </div>
         </div>
       </section>
@@ -420,7 +420,7 @@ export default function DashboardPage() {
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <BarChart3 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <BarChart3 className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white font-heading">
               تحليلات نمو المعرفة البرمجية (Knowledge Growth & Stack Analytics)
             </h3>
@@ -430,13 +430,13 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Chart 1: Knowledge Growth Over Time */}
-          <div className="p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-none space-y-3">
+          <div className="p-5 sm:p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-none space-y-3">
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white">منحنى نمو الجينومات البرمجية والأنماط</h4>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400">تطور التوثيق المعرفي والحلول خلال الشهور الأخيرة</p>
+                <p className="text-[10px] text-slate-600 dark:text-slate-400">تطور التوثيق المعرفي والحلول خلال الشهور الأخيرة</p>
               </div>
-              <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">+38% هذا الشهر</span>
+              <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">+38% هذا الشهر</span>
             </div>
 
             <div className="h-48 w-full dir-ltr">
@@ -472,13 +472,13 @@ export default function DashboardPage() {
           </div>
 
           {/* Chart 2: Most Used Technologies */}
-          <div className="p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-none space-y-3">
+          <div className="p-5 sm:p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-none space-y-3">
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white">توزيع التقنيات الأكثر استخداماً وتوثيقاً</h4>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400">تكرار الاعتماد على الحزم عبر مشاريعك</p>
+                <p className="text-[10px] text-slate-600 dark:text-slate-400">تكرار الاعتماد على الحزم عبر مشاريعك</p>
               </div>
-              <span className="text-xs font-mono font-bold text-purple-600 dark:text-purple-400">React في الصدارة</span>
+              <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-400">React في الصدارة</span>
             </div>
 
             <div className="h-48 w-full dir-ltr">
@@ -515,23 +515,23 @@ export default function DashboardPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block mb-1">عناصر الجينوم</span>
-              <p className="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">{genomes.length}</p>
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block mb-1">عناصر الجينوم</span>
+              <p className="text-2xl font-bold font-mono text-emerald-700 dark:text-emerald-400">{genomes.length}</p>
               <span className="text-[10px] text-emerald-700 dark:text-emerald-300 font-medium">موثقة ومفهرسة</span>
             </div>
             <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block mb-1">المشاريع النشطة</span>
-              <p className="text-2xl font-bold font-mono text-purple-600 dark:text-purple-400">{projects.length}</p>
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block mb-1">المشاريع النشطة</span>
+              <p className="text-2xl font-bold font-mono text-purple-700 dark:text-purple-400">{projects.length}</p>
               <span className="text-[10px] text-purple-700 dark:text-purple-300 font-medium">مع سياق AI مخصص</span>
             </div>
             <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block mb-1">أخطاء موثقة</span>
-              <p className="text-2xl font-bold font-mono text-rose-600 dark:text-rose-400">{bugs.length}</p>
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block mb-1">أخطاء موثقة</span>
+              <p className="text-2xl font-bold font-mono text-rose-700 dark:text-rose-400">{bugs.length}</p>
               <span className="text-[10px] text-rose-700 dark:text-rose-300 font-medium">مع حلول وقائية</span>
             </div>
             <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block mb-1">أيام الالتزام</span>
-              <p className="text-2xl font-bold font-mono text-amber-600 dark:text-amber-400">14</p>
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block mb-1">أيام الالتزام</span>
+              <p className="text-2xl font-bold font-mono text-amber-700 dark:text-amber-400">14</p>
               <span className="text-[10px] text-amber-700 dark:text-amber-300 font-medium">سلسلة مستمرة 🔥</span>
             </div>
           </div>
@@ -542,7 +542,7 @@ export default function DashboardPage() {
               <h4 className="text-xs font-bold text-slate-900 dark:text-white">أحدث جينومات الكود المضافة والمستخدمة</h4>
               <button
                 onClick={() => setPage('library')}
-                className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+                className="text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold hover:underline flex items-center gap-1 cursor-pointer"
               >
                 <span>عرض الكل</span>
                 <ArrowRight className="w-3 h-3" />
@@ -560,14 +560,14 @@ export default function DashboardPage() {
                   className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] hover:bg-slate-100 dark:hover:bg-white/[0.06] border border-slate-200 dark:border-white/[0.06] hover:border-emerald-500/30 flex items-center justify-between cursor-pointer transition-all group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-mono font-bold">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-800 dark:text-emerald-400 flex items-center justify-center text-xs font-mono font-bold">
                       {item.technology?.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
                       <h5 className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         {item.title}
                       </h5>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-sm">
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 truncate max-w-sm">
                         {item.description}
                       </p>
                     </div>
@@ -576,7 +576,7 @@ export default function DashboardPage() {
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200/80 dark:bg-white/[0.05] text-slate-700 dark:text-slate-300">
                       {item.difficulty}
                     </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-500 transition-colors" />
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400 group-hover:text-emerald-500 transition-colors" />
                   </div>
                 </div>
               ))}
@@ -589,10 +589,10 @@ export default function DashboardPage() {
           <div className="p-5 rounded-2xl bg-white dark:bg-gradient-to-b dark:from-[#0D121F] dark:to-[#12192B] border border-slate-200 dark:border-white/[0.08] shadow-md dark:shadow-tactile flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono text-purple-600 dark:text-purple-400 font-bold uppercase tracking-wider">
+                <span className="text-[10px] font-mono text-purple-700 dark:text-purple-400 font-bold uppercase tracking-wider">
                   المشروع الحالي (Current Project)
                 </span>
-                <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">
                   {currentProject.progress}%
                 </span>
               </div>
@@ -631,10 +631,10 @@ export default function DashboardPage() {
                   <div key={t.id} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
                     <CheckCircle2
                       className={`w-3.5 h-3.5 shrink-0 ${
-                        t.completed ? 'text-emerald-500 dark:text-emerald-400' : 'text-slate-400'
+                        t.completed ? 'text-emerald-500 dark:text-emerald-400' : 'text-slate-600 dark:text-slate-400'
                       }`}
                     />
-                    <span className={t.completed ? 'line-through text-slate-400' : ''}>
+                    <span className={t.completed ? 'line-through text-slate-600 dark:text-slate-400' : ''}>
                       {t.title}
                     </span>
                   </div>

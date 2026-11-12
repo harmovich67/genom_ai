@@ -197,7 +197,7 @@ export default function SettingsModal() {
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">اللغة الأساسية للواجهة</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">يدعم النظام التبديل الفوري بين العربية (RTL) والإنجليزية (LTR)</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px]">يدعم النظام التبديل الفوري بين العربية (RTL) والإنجليزية (LTR)</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
@@ -222,7 +222,7 @@ export default function SettingsModal() {
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">النمط المظهري (Theme)</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">مظهر الحبر العميق المظلم أو المظهر الفاتح عالي التباين</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px]">مظهر الحبر العميق المظلم أو المظهر الفاتح عالي التباين</p>
                   </div>
                   <button
                     onClick={toggleTheme}
@@ -235,7 +235,7 @@ export default function SettingsModal() {
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">تقليل الحركات (Reduced Motion)</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">إيقاف التأثيرات الحركية المعقدة لسرعة واستقرار أكبر</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px]">إيقاف التأثيرات الحركية المعقدة لسرعة واستقرار أكبر</p>
                   </div>
                   <input
                     type="checkbox"
@@ -271,7 +271,7 @@ export default function SettingsModal() {
                     placeholder="AIzaSy..."
                     className="w-full p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-white/[0.1] text-xs text-slate-900 dark:text-white font-mono placeholder-slate-400 outline-none focus:border-purple-500"
                   />
-                  <p className="text-[10px] text-slate-500">المفتاح يتم حفظه محلياً في متصفحك فقط ولا يُرسل لأي خادم وسيط.</p>
+                  <p className="text-[10px] text-slate-600 dark:text-slate-500">المفتاح يتم حفظه محلياً في متصفحك فقط ولا يُرسل لأي خادم وسيط.</p>
                 </div>
 
                 <div className="space-y-1">
@@ -305,7 +305,7 @@ export default function SettingsModal() {
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">تصدير الذاكرة المعرفية (Export Backup)</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">تنزيل نسخة احتياطية كاملة JSON تتضمن كافة الجينومات، المشاريع، والقرارات</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px]">تنزيل نسخة احتياطية كاملة JSON تتضمن كافة الجينومات، المشاريع، والقرارات</p>
                   </div>
                   <button
                     onClick={handleExportData}
@@ -319,7 +319,7 @@ export default function SettingsModal() {
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200">استيراد نسخة سابقة (Import Backup)</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">استرجاع بياناتك ومكتبتك من ملف JSON سابق</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px]">استرجاع بياناتك ومكتبتك من ملف JSON سابق</p>
                   </div>
                   <label className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-800 border border-cyan-300 dark:bg-cyan-600/20 dark:hover:bg-cyan-600/30 dark:text-cyan-300 dark:border-cyan-500/30 transition-all font-medium cursor-pointer">
                     <Upload className="w-4 h-4" />
@@ -331,7 +331,7 @@ export default function SettingsModal() {
                 <div className="p-4 rounded-xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-rose-800 dark:text-rose-300">إفراغ قاعدة البيانات المحلية</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">مسح IndexedDB وإعادة تعيين البيانات الأولية للمنصة</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px]">مسح IndexedDB وإعادة تعيين البيانات الأولية للمنصة</p>
                   </div>
                   <button
                     onClick={handleClearData}

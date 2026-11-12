@@ -116,35 +116,40 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-6 pb-16">
       {/* Top Project Selector & Actions */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/30">
+          <div className="shrink-0 p-3 sm:p-2.5 rounded-2xl bg-purple-500/15 text-purple-700 dark:text-purple-400 border border-purple-500/30">
             <FolderGit2 className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
-              مساحات عمل المشاريع وذاكرة النظام (Project Memory)
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading leading-snug">
+              <span className="sm:hidden">مساحات المشاريع</span>
+              <span className="hidden sm:inline">مساحات عمل المشاريع وذاكرة النظام (Project Memory)</span>
             </h1>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              لكل مشروع سياق ذكاء اصطناعي مستقل، سجل قرارات معمارية (ADR)، ومكتبة حلول متصلة
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+              <span className="sm:hidden">سياق ذكي وسجل قرارات لكل مشروع</span>
+              <span className="hidden sm:inline">لكل مشروع سياق ذكاء اصطناعي مستقل، سجل قرارات معمارية (ADR)، ومكتبة حلول متصلة</span>
             </p>
           </div>
         </div>
 
         {/* Project Actions & Selector */}
-        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-2 w-full sm:w-auto">
           {/* Action Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 sm:gap-2">
             <button
               onClick={() => openModal('projectImport')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/[0.08] text-xs font-medium transition-all cursor-pointer"
+              className="flex items-center justify-center gap-1.5 px-3 py-2.5 sm:py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/[0.08] text-xs font-medium transition-all cursor-pointer"
             >
-              <Upload className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-              <span>استيراد مشروع (package.json)</span>
+              <Upload className="w-3.5 h-3.5 text-purple-700 dark:text-purple-400" />
+              <span>
+                <span className="sm:hidden">استيراد</span>
+                <span className="hidden sm:inline">استيراد مشروع (package.json)</span>
+              </span>
             </button>
             <button
               onClick={() => openModal('newProject')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-glow-purple transition-all cursor-pointer"
+              className="flex items-center justify-center gap-1.5 px-3 py-2.5 sm:py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-glow-purple transition-all cursor-pointer"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>مشروع جديد</span>
@@ -152,12 +157,12 @@ export default function ProjectsPage() {
           </div>
 
           {/* Project Selector Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+          <div className="flex items-center gap-2 sm:gap-1.5 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 py-1 sm:py-0">
             {projects.map((p) => (
               <button
                 key={p.id}
                 onClick={() => setSelectedProjectId(p.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                className={`shrink-0 px-3.5 py-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                   selectedProjectId === p.id
                     ? 'bg-purple-600 text-white shadow-glow-purple'
                     : 'bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.06]'
@@ -171,30 +176,30 @@ export default function ProjectsPage() {
       </div>
 
       {/* Selected Project Main Card */}
-      <div className="p-4 sm:p-6 rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-5">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/[0.08] pb-5">
+      <div className="p-5 sm:p-6 rounded-[1.75rem] sm:rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-6 sm:space-y-5">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 sm:gap-4 border-b border-slate-200 dark:border-white/[0.08] pb-5">
           <div>
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30">
                 مشروع معتمد
               </span>
               <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{project.timeline}</span>
             </div>
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{project.name}</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">{project.name}</h2>
             <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
               {project.description}
             </p>
           </div>
 
           {/* Progress Widget */}
-          <div className="flex items-center gap-4 bg-slate-100 dark:bg-black/40 p-3.5 rounded-2xl border border-slate-200 dark:border-white/[0.06] shrink-0">
+          <div className="flex items-center gap-4 bg-slate-100 dark:bg-black/40 p-4 sm:p-3.5 rounded-2xl border border-slate-200 dark:border-white/[0.06] md:shrink-0">
             <div className="text-right">
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block">نسبة الإنجاز</span>
-              <span className="text-xl font-extrabold font-mono text-emerald-600 dark:text-emerald-400">
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">نسبة الإنجاز</span>
+              <span className="text-xl font-extrabold font-mono text-emerald-700 dark:text-emerald-400">
                 {project.progress}%
               </span>
             </div>
-            <div className="w-24 h-2 rounded-full bg-slate-200 dark:bg-white/[0.08] overflow-hidden">
+            <div className="flex-1 md:flex-none md:w-24 h-2 rounded-full bg-slate-200 dark:bg-white/[0.08] overflow-hidden">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500"
                 style={{ width: `${project.progress}%` }}
@@ -204,8 +209,8 @@ export default function ProjectsPage() {
         </div>
 
         {/* Project Stack Tags */}
-        <div className="flex flex-wrap items-center gap-1.5 text-xs">
-          <span className="font-mono text-slate-500 dark:text-slate-400 text-[11px] ml-2 font-semibold">حزمة التقنيات:</span>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs">
+          <span className="w-full sm:w-auto font-mono text-slate-600 dark:text-slate-400 text-[11px] sm:ml-2 font-semibold">حزمة التقنيات:</span>
           {project.stack?.map((tech, i) => (
             <span
               key={i}
@@ -235,26 +240,26 @@ export default function ProjectsPage() {
         {activeProjectTab === 'overview' && (
           <div className="space-y-4 text-xs">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                <h4 className="font-semibold text-slate-200 flex items-center gap-1.5">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-white/[0.06] space-y-2">
+                <h4 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                   <Layers className="w-4 h-4 text-purple-400" />
                   المعمارية المعتمدة (Architecture Notes)
                 </h4>
-                <p className="text-slate-300 leading-relaxed">{project.architectureNotes}</p>
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{project.architectureNotes}</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-purple-500/5 border border-purple-500/20 space-y-2">
-                <h4 className="font-semibold text-purple-300 flex items-center gap-1.5">
+                <h4 className="font-semibold text-purple-700 dark:text-purple-300 flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4" />
                   سياق الذكاء الاصطناعي الخاص بالمشروع (AI Context)
                 </h4>
-                <p className="text-slate-300 leading-relaxed">{project.aiContext}</p>
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{project.aiContext}</p>
               </div>
             </div>
 
             {/* Related Snippets from user library */}
-            <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-              <h4 className="font-semibold text-slate-200">الجينومات والحلول المرتبطة بهذا المشروع:</h4>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-white/[0.06] space-y-2">
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200">الجينومات والحلول المرتبطة بهذا المشروع:</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                 {genomes.slice(0, 2).map((g) => (
                   <div
@@ -263,15 +268,15 @@ export default function ProjectsPage() {
                       setSelectedGenome(g);
                       openModal('genomeDetail', g);
                     }}
-                    className="p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] flex items-center justify-between cursor-pointer transition-colors group"
+                    className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] hover:bg-slate-100 dark:hover:bg-white/[0.06] border border-white/[0.06] flex items-center justify-between cursor-pointer transition-colors group"
                   >
                     <div>
-                      <p className="font-bold text-slate-200 group-hover:text-emerald-400 transition-colors">
+                      <p className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                         {g.title}
                       </p>
-                      <span className="text-[10px] font-mono text-slate-500">{g.type}</span>
+                      <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">{g.type}</span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-emerald-400" />
+                    <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-emerald-700 dark:group-hover:text-emerald-400" />
                   </div>
                 ))}
               </div>
@@ -283,13 +288,13 @@ export default function ProjectsPage() {
         {activeProjectTab === 'tasks' && (
           <div className="space-y-4 text-xs">
             <div className="space-y-2">
-              <h4 className="font-semibold text-slate-200 flex items-center gap-1.5">
-                <Target className="w-4 h-4 text-emerald-400" />
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <Target className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
                 أهداف المشروع (Project Goals)
               </h4>
               <div className="space-y-1.5">
                 {project.goals?.map((g, idx) => (
-                  <div key={idx} className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] text-slate-300">
+                  <div key={idx} className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-white/[0.04] text-slate-700 dark:text-slate-300">
                     • {g}
                   </div>
                 ))}
@@ -297,25 +302,25 @@ export default function ProjectsPage() {
             </div>
 
             <div className="space-y-2 pt-2">
-              <h4 className="font-semibold text-slate-200">المهام البرمجية والتنفيذية:</h4>
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200">المهام البرمجية والتنفيذية:</h4>
               <div className="space-y-2">
                 {project.tasks?.map((task) => (
                   <div
                     key={task.id}
                     onClick={() => toggleTask(project.id, task.id)}
-                    className="p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.06] flex items-center justify-between cursor-pointer transition-colors"
+                    className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] hover:bg-slate-100 dark:hover:bg-white/[0.05] border border-white/[0.06] flex items-center justify-between cursor-pointer transition-colors"
                   >
                     <div className="flex items-center gap-3">
                       {task.completed ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-700 dark:text-emerald-400 shrink-0" />
                       ) : (
                         <Circle className="w-4 h-4 text-slate-500 shrink-0" />
                       )}
-                      <span className={`text-xs ${task.completed ? 'line-through text-slate-500' : 'text-slate-200'}`}>
+                      <span className={`text-xs ${task.completed ? 'line-through text-slate-500' : 'text-slate-800 dark:text-slate-200'}`}>
                         {task.title}
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-slate-500">
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">
                       {task.completed ? 'مكتملة' : 'قيد العمل'}
                     </span>
                   </div>
@@ -331,7 +336,7 @@ export default function ProjectsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-semibold text-slate-900 dark:text-white">سجل القرارات المعمارية (Decision Log / ADR)</h4>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">توثيق القرارات الهندسية وأسباب اتخاذها وعواقبها كمرجع دائم</p>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400">توثيق القرارات الهندسية وأسباب اتخاذها وعواقبها كمرجع دائم</p>
               </div>
               <button
                 onClick={() => setShowNewDecisionModal(true)}
@@ -352,20 +357,20 @@ export default function ProjectsPage() {
                 projectDecisions.map((dec) => (
                   <div key={dec.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-purple-600 dark:text-purple-400 font-bold text-[11px]">
+                      <span className="font-mono text-purple-700 dark:text-purple-400 font-bold text-[11px]">
                         ADR-{dec.id}
                       </span>
-                      <span className="text-[10px] font-mono text-slate-500">{dec.date}</span>
+                      <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">{dec.date}</span>
                     </div>
                     <h5 className="font-bold text-slate-900 dark:text-white text-sm">{dec.title}</h5>
                     <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{dec.decision}</p>
                     {dec.chosenApproach && (
                       <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/[0.06] text-slate-700 dark:text-slate-400 text-[11px]">
-                        <strong className="text-emerald-600 dark:text-emerald-400 font-mono">النهج المختار:</strong> {dec.chosenApproach}
+                        <strong className="text-emerald-700 dark:text-emerald-400 font-mono">النهج المختار:</strong> {dec.chosenApproach}
                       </div>
                     )}
                     {dec.aiReview && (
-                      <p className="text-[11px] text-purple-600 dark:text-purple-300 font-mono flex items-center gap-1 mt-1">
+                      <p className="text-[11px] text-purple-700 dark:text-purple-300 font-mono flex items-center gap-1 mt-1">
                         <Sparkles className="w-3 h-3" /> مراجعة الذكاء الاصطناعي: {dec.aiReview}
                       </p>
                     )}
@@ -419,9 +424,9 @@ export default function ProjectsPage() {
             <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
               <div>
                 <h4 className="font-semibold text-white">الجدول الزمني ومراحل الإطلاق (Roadmap & Timeline)</h4>
-                <p className="text-[11px] text-slate-400">تتبع محطات المشروع والتقدم الهندسي عبر دورة حياة البرمجية</p>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400">تتبع محطات المشروع والتقدم الهندسي عبر دورة حياة البرمجية</p>
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30">
                 {project.timeline}
               </span>
             </div>
@@ -432,12 +437,12 @@ export default function ProjectsPage() {
                 <span className="absolute -right-6 top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-slate-900 flex items-center justify-center text-[9px] text-black font-bold">
                   ✓
                 </span>
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-1">
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-white/[0.06] space-y-1">
                   <div className="flex items-center justify-between">
                     <h5 className="font-bold text-white text-xs">المرحلة الأولى: التصميم المعماري وقواعد البيانات</h5>
-                    <span className="text-[10px] font-mono text-emerald-400 font-semibold">مكتملة 100%</span>
+                    <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold">مكتملة 100%</span>
                   </div>
-                  <p className="text-slate-300 leading-relaxed text-[11px]">
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
                     بناء مخططات الجداول، إعداد فهارس Composite Indexes، وتوثيق سجل الـ ADR الأول.
                   </p>
                 </div>
@@ -449,9 +454,9 @@ export default function ProjectsPage() {
                 <div className="p-4 rounded-2xl bg-purple-500/10 border border-purple-500/30 space-y-1">
                   <div className="flex items-center justify-between">
                     <h5 className="font-bold text-purple-200 text-xs">المرحلة الثانية: بناء منطق العمليات والقفل الموزع</h5>
-                    <span className="text-[10px] font-mono text-purple-300 font-semibold">قيد التنفيذ ({project.progress}%)</span>
+                    <span className="text-[10px] font-mono text-purple-700 dark:text-purple-300 font-semibold">قيد التنفيذ ({project.progress}%)</span>
                   </div>
-                  <p className="text-slate-300 leading-relaxed text-[11px]">
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-[11px]">
                     ربط خدمات Redis لمنع التكرار ومعالجة الطلبات المتزامنة، وتطبيق حراس المسارات.
                   </p>
                 </div>
@@ -460,12 +465,12 @@ export default function ProjectsPage() {
               {/* Phase 3 */}
               <div className="relative group">
                 <span className="absolute -right-6 top-1 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-900" />
-                <div className="p-4 rounded-2xl bg-white/[0.01] border border-white/[0.04] space-y-1 opacity-70">
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.01] border border-white/[0.04] space-y-1 dark:opacity-70">
                   <div className="flex items-center justify-between">
-                    <h5 className="font-bold text-slate-300 text-xs">المرحلة الثالثة: اختبارات الأمان والإنتاج الموسع</h5>
-                    <span className="text-[10px] font-mono text-slate-500 font-semibold">مجدولة</span>
+                    <h5 className="font-bold text-slate-700 dark:text-slate-300 text-xs">المرحلة الثالثة: اختبارات الأمان والإنتاج الموسع</h5>
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 font-semibold">مجدولة</span>
                   </div>
-                  <p className="text-slate-400 leading-relaxed text-[11px]">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
                     إجراء اختبارات الحمل (Stress Testing)، فحص ثغرات التوقيت، وإطلاق النسخة التجريبية للمستخدمين.
                   </p>
                 </div>
@@ -503,7 +508,7 @@ export default function ProjectsPage() {
                 ))
               )}
               {isAiThinking && (
-                <div className="p-3 rounded-xl bg-white dark:bg-white/[0.04] text-purple-600 dark:text-purple-400 font-mono text-[11px] animate-pulse">
+                <div className="p-3 rounded-xl bg-white dark:bg-white/[0.04] text-purple-700 dark:text-purple-400 font-mono text-[11px] animate-pulse">
                   جاري استرجاع ذاكرة المشروع والقرارات المعمارية...
                 </div>
               )}

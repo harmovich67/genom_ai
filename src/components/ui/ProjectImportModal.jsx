@@ -270,14 +270,14 @@ export const projectGuard = (req, res, next) => {
               onDragOver={(e) => e.preventDefault()}
               className="p-6 rounded-2xl border-2 border-dashed border-slate-300 dark:border-white/[0.12] hover:border-emerald-500 bg-slate-50 dark:bg-black/30 text-center space-y-3 transition-colors cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-glow-emerald">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-800 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-glow-emerald">
                 <FileCode className="w-6 h-6" />
               </div>
               <div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">
                   اسحب وأفلت ملفك هنا، أو استعرض من جهازك
                 </p>
-                <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-1">
+                <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-1">
                   يدعم: package.json, composer.json, README.md, .js, .jsx, .ts, .php, .sql
                 </p>
               </div>
@@ -295,7 +295,7 @@ export const projectGuard = (req, res, next) => {
               </div>
 
               {fileName && (
-                <p className="text-emerald-600 dark:text-emerald-400 font-mono text-[11px] pt-1 font-semibold">
+                <p className="text-emerald-700 dark:text-emerald-400 font-mono text-[11px] pt-1 font-semibold">
                   الملف النشط: {fileName}
                 </p>
               )}
@@ -328,7 +328,7 @@ export const projectGuard = (req, res, next) => {
               <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-emerald-300 dark:border-emerald-500/30 shadow-tactile space-y-4 animate-fadeIn">
                 <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/[0.08] pb-3">
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
                       نتائج التحليل واستخراج المعمارية
                     </span>
                     <h4 className="text-base font-bold text-slate-900 dark:text-white mt-0.5">
@@ -385,7 +385,7 @@ export const projectGuard = (req, res, next) => {
                       <h5 className="font-bold text-slate-900 dark:text-white text-xs">
                         الجينومات المعرفية المقترح استخراجها من هذا المشروع:
                       </h5>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400">
                         راجع ووافق على الحلول التي ترغب في حفظها في مكتبة جينوم الكود (لن يتم النشر تلقائياً بدون موافقتك)
                       </p>
                     </div>
@@ -421,7 +421,7 @@ export const projectGuard = (req, res, next) => {
                               <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-100 text-emerald-800 dark:bg-white/[0.06] dark:text-emerald-300">
                                 {sug.technology}
                               </span>
-                              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">{sug.type}</span>
+                              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400">{sug.type}</span>
                             </div>
                             <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
                               {sug.problem}
@@ -435,7 +435,7 @@ export const projectGuard = (req, res, next) => {
 
                 {/* Confirm Import Button */}
                 <div className="pt-3 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-mono">
                     ✓ سيتم إنشاء المشروع وربط الجينومات المعتمدة به
                   </span>
                   <button

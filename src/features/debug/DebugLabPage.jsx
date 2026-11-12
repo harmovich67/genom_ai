@@ -93,12 +93,12 @@ export default function DebugLabPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/30">
+          <div className="p-2.5 rounded-2xl bg-rose-500/15 text-rose-700 dark:text-rose-400 border border-rose-500/30">
             <Bug className="w-5 h-5" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
-              مختبر التصحيح الهندسي (Debug Lab)
+              مختبر التصحيح الهندسي<span className="hidden sm:inline"> (Debug Lab)</span>
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               تحليل استثناءات الأكواد، تحديد الجذر الفعلي للخلل، وتوثيق الحلول الوقائية الدائمة
@@ -147,10 +147,10 @@ export default function DebugLabPage() {
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-rose-500/15 text-rose-600 dark:text-rose-300 border border-rose-500/20">
+                  <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-500/20">
                     {b.confidence || 'Known'}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500">{b.environment}</span>
+                  <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">{b.environment}</span>
                 </div>
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{b.title}</h4>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2 mt-1">{b.problem}</p>
@@ -163,7 +163,7 @@ export default function DebugLabPage() {
             <div className="lg:col-span-2 p-6 rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] space-y-5">
               <div className="border-b border-slate-200 dark:border-white/[0.08] pb-4">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-600 dark:text-rose-300 font-bold border border-rose-500/30">
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-700 dark:text-rose-300 font-bold border border-rose-500/30">
                     حالة موثقة: {selectedCase.confidence}
                   </span>
                   <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{selectedCase.environment}</span>
@@ -174,7 +174,7 @@ export default function DebugLabPage() {
               {/* Error Snippet Box */}
               {selectedCase.error && (
                 <div className="space-y-1">
-                  <span className="text-[11px] font-mono text-rose-600 dark:text-rose-400 font-semibold block">رسالة الخطأ الأصلية (Raw Error):</span>
+                  <span className="text-[11px] font-mono text-rose-700 dark:text-rose-400 font-semibold block">رسالة الخطأ الأصلية (Raw Error):</span>
                   <pre className="p-3 rounded-xl bg-slate-900 border border-rose-500/20 text-rose-300 font-mono text-xs overflow-x-auto dir-ltr text-left">
                     <code>{selectedCase.error}</code>
                   </pre>
@@ -184,19 +184,19 @@ export default function DebugLabPage() {
               {/* Root Cause & What Happened */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1.5">
-                  <span className="font-semibold text-amber-600 dark:text-amber-400 block font-mono">ما حدث ولماذا فشل (What Happened):</span>
+                  <span className="font-semibold text-amber-700 dark:text-amber-400 block font-mono">ما حدث ولماذا فشل (What Happened):</span>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{selectedCase.whatHappened || selectedCase.problem}</p>
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1.5">
-                  <span className="font-semibold text-rose-600 dark:text-rose-400 block font-mono">السبب الجذري الحقيقي (Root Cause):</span>
+                  <span className="font-semibold text-rose-700 dark:text-rose-400 block font-mono">السبب الجذري الحقيقي (Root Cause):</span>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{selectedCase.rootCause}</p>
                 </div>
               </div>
 
               {/* Solution & Final Tested Code */}
               <div className="space-y-2 text-xs">
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400 block font-mono">طريقة الحل البرمجي (The Solution):</span>
+                <span className="font-semibold text-emerald-700 dark:text-emerald-400 block font-mono">طريقة الحل البرمجي (The Solution):</span>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{selectedCase.solution}</p>
 
                 {selectedCase.finalCode && (
@@ -213,7 +213,7 @@ export default function DebugLabPage() {
 
               {/* Prevention Rule */}
               <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-purple-500/10 to-transparent border border-emerald-500/30 text-xs">
-                <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 mb-1 font-mono">
+                <span className="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5 mb-1 font-mono">
                   <ShieldCheck className="w-4 h-4" />
                   قاعدة الوقاية الدائمة لمنع التكرار (Prevention Principle):
                 </span>
@@ -222,7 +222,7 @@ export default function DebugLabPage() {
             </div>
           ) : (
             <div className="lg:col-span-2 p-12 text-center glass-panel rounded-3xl">
-              <p className="text-slate-400">اختر حالة من القائمة لاستعراض تفاصيلها.</p>
+              <p className="text-slate-600 dark:text-slate-400">اختر حالة من القائمة لاستعراض تفاصيلها.</p>
             </div>
           )}
         </div>
@@ -233,7 +233,7 @@ export default function DebugLabPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Input Form */}
           <form onSubmit={handleStartAnalysis} className="p-6 rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] space-y-4 text-xs">
-            <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-semibold mb-2">
+            <div className="flex items-center gap-2 text-purple-700 dark:text-purple-400 font-semibold mb-2">
               <Sparkles className="w-4 h-4" />
               <span>محلل الأخطاء التنبؤي بواسطة Gemini 3.5 Flash-Lite</span>
             </div>
@@ -301,14 +301,14 @@ export default function DebugLabPage() {
                 {/* Confidence Badge Header */}
                 <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/[0.08] pb-3">
                   <div>
-                    <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block font-semibold">مستوى ثقة الذكاء الاصطناعي:</span>
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block font-semibold">مستوى ثقة الذكاء الاصطناعي:</span>
                     <span
                       className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded-full inline-block mt-0.5 ${
                         activeAnalysis.confidence === 'Known'
-                          ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
+                          ? 'bg-emerald-500/20 text-emerald-800 dark:text-emerald-400 border border-emerald-500/30'
                           : activeAnalysis.confidence === 'Likely'
-                          ? 'bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'
-                          : 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30'
+                          ? 'bg-cyan-500/20 text-cyan-700 dark:text-cyan-400 border border-cyan-500/30'
+                          : 'bg-amber-500/20 text-amber-800 dark:text-amber-400 border border-amber-500/30'
                       }`}
                     >
                       {activeAnalysis.confidence} (محدد هندسياً)
@@ -360,7 +360,7 @@ export default function DebugLabPage() {
                 </div>
               </div>
             ) : (
-              <div className="h-full p-12 text-center glass-panel border border-slate-200 dark:border-white/[0.08] rounded-3xl flex flex-col items-center justify-center text-slate-400 space-y-3">
+              <div className="h-full p-12 text-center glass-panel border border-slate-200 dark:border-white/[0.08] rounded-3xl flex flex-col items-center justify-center text-slate-600 dark:text-slate-400 space-y-3">
                 <Bug className="w-12 h-12 text-slate-400 dark:text-slate-600" />
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200">بانتظار تفاصيل الخطأ للتحليل</h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">

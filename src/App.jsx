@@ -78,7 +78,7 @@ export default function App() {
         <Sidebar />
 
         {/* Dynamic Main Workspace Content */}
-        <main className="flex-1 p-3.5 sm:p-6 lg:p-8 min-w-0 overflow-y-auto pb-28 md:pb-8">
+        <main className="flex-1 px-4 pt-5 pb-32 sm:p-6 lg:p-8 min-w-0 overflow-y-auto md:pb-8">
           <GenomeMatchBanner />
           {activePage === 'home' && <DashboardPage />}
           {activePage === 'library' && <LibraryPage />}

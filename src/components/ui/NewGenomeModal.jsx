@@ -319,7 +319,7 @@ export default function NewGenomeModal() {
 
             {/* Footer Buttons */}
             <div className="pt-3 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+              <p className="text-[11px] text-slate-600 dark:text-slate-400 font-mono">
                 {dnaAnalyzed ? '✓ تم التحقق من سلامة الجينوم عبر الذكاء الاصطناعي' : 'سيتم التخزين محلياً بأمان'}
               </p>
               <div className="flex items-center gap-2">

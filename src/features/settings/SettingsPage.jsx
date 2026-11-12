@@ -145,7 +145,7 @@ export default function SettingsPage() {
         </div>
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
-            إعدادات النظام والبيانات (Settings & Privacy)
+            إعدادات النظام والبيانات<span className="hidden sm:inline"> (Settings & Privacy)</span>
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400">
             تحكم بنماذج الذكاء الاصطناعي، الخصوصية المحلية، المظهر، والنسخ الاحتياطي
@@ -172,7 +172,7 @@ export default function SettingsPage() {
           <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">اللغة الأساسية للواجهة</h4>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">يدعم النظام التحويل الفوري بين العربية (RTL) والإنجليزية (LTR)</p>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">يدعم النظام التحويل الفوري بين العربية (RTL) والإنجليزية (LTR)</p>
             </div>
             <div className="flex items-center gap-2">
               <button
@@ -197,7 +197,7 @@ export default function SettingsPage() {
           <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">المظهر البصري (Theme)</h4>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">مظهر الحبر العميق المظلم أو المظهر الفاتح عالي التباين</p>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">مظهر الحبر العميق المظلم أو المظهر الفاتح عالي التباين</p>
             </div>
             <button
               onClick={toggleTheme}
@@ -211,7 +211,7 @@ export default function SettingsPage() {
           <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">تقليل التأثيرات الحركية (Reduced Motion)</h4>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">إيقاف الرسوم المتحركة المعقدة لتجربة أسرع وأخف على الجهاز</p>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">إيقاف الرسوم المتحركة المعقدة لتجربة أسرع وأخف على الجهاز</p>
             </div>
             <input
               type="checkbox"
@@ -249,7 +249,7 @@ export default function SettingsPage() {
                 placeholder="AIzaSy..."
                 className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-white/[0.1] text-xs text-slate-900 dark:text-white font-mono placeholder-slate-400 outline-none focus:border-purple-500"
               />
-              <p className="text-[10px] text-slate-500 font-mono">
+              <p className="text-[10px] text-slate-600 dark:text-slate-500 font-mono">
                 المفتاح مشفر ومخزن في متصفحك محلياً ولا يرسل لأي خادم وسيط.
               </p>
             </div>
@@ -287,7 +287,7 @@ export default function SettingsPage() {
           <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">تصدير الذاكرة المعرفية (Export Data)</h4>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">تنزيل نسخة احتياطية كاملة JSON تتضمن كافة الجينومات، المشاريع، والقرارات</p>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">تنزيل نسخة احتياطية كاملة JSON تتضمن كافة الجينومات، المشاريع، والقرارات</p>
             </div>
             <button
               onClick={handleExportData}
@@ -301,7 +301,7 @@ export default function SettingsPage() {
           <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">استيراد نسخة سابقة (Import Data)</h4>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">استرجاع بياناتك ومكتبتك من ملف JSON سابق</p>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">استرجاع بياناتك ومكتبتك من ملف JSON سابق</p>
             </div>
             <label className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 text-cyan-800 border border-cyan-300 dark:bg-cyan-600/20 dark:hover:bg-cyan-600/30 dark:text-cyan-300 dark:border-cyan-500/30 transition-all font-semibold cursor-pointer">
               <Upload className="w-4 h-4" />
@@ -313,7 +313,7 @@ export default function SettingsPage() {
           <div className="p-5 rounded-2xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 flex items-center justify-between">
             <div>
               <h4 className="font-semibold text-rose-800 dark:text-rose-300 text-sm">إفراغ قاعدة البيانات المحلية</h4>
-              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">مسح IndexedDB وإعادة تعيين البيانات الأولية للمنصة</p>
+              <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">مسح IndexedDB وإعادة تعيين البيانات الأولية للمنصة</p>
             </div>
             <button
               onClick={handleClearData}

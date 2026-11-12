@@ -24,11 +24,11 @@ export default function ToastContainer() {
             }`}
           >
             {toast.type === 'error' ? (
-              <AlertCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+              <AlertCircle className="w-5 h-5 text-rose-700 dark:text-rose-400 shrink-0 mt-0.5" />
             ) : toast.type === 'info' ? (
-              <Info className="w-5 h-5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+              <Info className="w-5 h-5 text-cyan-700 dark:text-cyan-400 shrink-0 mt-0.5" />
             ) : (
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-700 dark:text-emerald-400 shrink-0 mt-0.5" />
             )}
             <div className="flex-1">
               <h4 className="font-semibold text-slate-900 dark:text-slate-100">{toast.title}</h4>

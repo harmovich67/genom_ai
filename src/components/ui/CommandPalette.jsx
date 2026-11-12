@@ -173,16 +173,16 @@ export default function CommandPalette() {
             {searchResults ? (
               searchResults.totalCount === 0 ? (
                 <div className="py-12 text-center text-slate-500 dark:text-slate-400">
-                  <Dna className="w-8 h-8 mx-auto mb-2 text-slate-400" />
+                  <Dna className="w-8 h-8 mx-auto mb-2 text-slate-600 dark:text-slate-400" />
                   <p className="text-sm">لم يتم العثور على نتائج تطابق "{query}"</p>
-                  <p className="text-xs text-slate-400 mt-1">جرّب البحث بكلمة مختلفة مثل: React, Salla, JWT, Hook</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">جرّب البحث بكلمة مختلفة مثل: React, Salla, JWT, Hook</p>
                 </div>
               ) : (
                 <div className="space-y-3">
                   {/* Matched Genomes */}
                   {searchResults.genomes.length > 0 && (
                     <div>
-                      <p className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold px-2 mb-1">
+                      <p className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold px-2 mb-1">
                         مكتبة الجينوم ({searchResults.genomes.length})
                       </p>
                       {searchResults.genomes.map((g) => (
@@ -196,14 +196,14 @@ export default function CommandPalette() {
                           className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-emerald-50 hover:border-emerald-200 dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/20 border border-transparent text-right transition-all group cursor-pointer"
                         >
                           <div className="flex items-center gap-2.5">
-                            <div className="p-1.5 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400">
+                            <div className="p-1.5 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-400">
                               <Dna className="w-4 h-4" />
                             </div>
                             <div>
                               <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-300">
                                 {g.title}
                               </p>
-                              <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-md">
+                              <p className="text-[11px] text-slate-600 dark:text-slate-400 truncate max-w-md">
                                 {g.technology} • {g.type} • {g.difficulty}
                               </p>
                             </div>
@@ -217,7 +217,7 @@ export default function CommandPalette() {
                   {/* Matched Projects */}
                   {searchResults.projects.length > 0 && (
                     <div>
-                      <p className="text-[10px] font-mono text-purple-600 dark:text-purple-400 font-semibold px-2 mb-1">
+                      <p className="text-[10px] font-mono text-purple-700 dark:text-purple-400 font-semibold px-2 mb-1">
                         المشاريع ({searchResults.projects.length})
                       </p>
                       {searchResults.projects.map((p) => (
@@ -237,7 +237,7 @@ export default function CommandPalette() {
                               <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-300">
                                 {p.name}
                               </p>
-                              <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-md">
+                              <p className="text-[11px] text-slate-600 dark:text-slate-400 truncate max-w-md">
                                 {p.stack?.join(', ')} • إنجاز {p.progress}%
                               </p>
                             </div>
@@ -251,7 +251,7 @@ export default function CommandPalette() {
                   {/* Matched Bugs */}
                   {searchResults.bugs.length > 0 && (
                     <div>
-                      <p className="text-[10px] font-mono text-rose-600 dark:text-rose-400 font-semibold px-2 mb-1">
+                      <p className="text-[10px] font-mono text-rose-700 dark:text-rose-400 font-semibold px-2 mb-1">
                         مختبر التصحيح ({searchResults.bugs.length})
                       </p>
                       {searchResults.bugs.map((b) => (
@@ -271,7 +271,7 @@ export default function CommandPalette() {
                               <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-rose-600 dark:group-hover:text-rose-300">
                                 {b.title}
                               </p>
-                              <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-md">
+                              <p className="text-[11px] text-slate-600 dark:text-slate-400 truncate max-w-md">
                                 {b.environment} • {b.confidence}
                               </p>
                             </div>
@@ -286,7 +286,7 @@ export default function CommandPalette() {
             ) : (
               // Default Commands list
               <div>
-                <p className="text-[10px] font-mono text-slate-500 dark:text-slate-400 font-semibold px-2 mb-1 uppercase tracking-wider">
+                <p className="text-[10px] font-mono text-slate-600 dark:text-slate-400 font-semibold px-2 mb-1 uppercase tracking-wider">
                   {lang === 'ar' ? 'إجراءات سريعة وتوجيه' : 'Quick Actions'}
                 </p>
                 <div className="space-y-0.5">
@@ -321,7 +321,7 @@ export default function CommandPalette() {
           </div>
 
           {/* Footer Navigation Hints */}
-          <div className="p-3 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/40 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+          <div className="p-3 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/40 flex items-center justify-between text-[11px] text-slate-600 dark:text-slate-400 font-mono">
             <div className="flex items-center gap-3">
               <span>↑↓ للتنقل</span>
               <span>↵ للاختيار</span>

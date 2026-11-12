@@ -22,7 +22,7 @@ export default function GenomeMatchBanner() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-500/25 border border-emerald-300 dark:border-emerald-500/40 flex items-center justify-center shrink-0 shadow-sm dark:shadow-glow-emerald">
-              <Dna className="w-5 h-5 text-emerald-600 dark:text-emerald-400 animate-pulse" />
+              <Dna className="w-5 h-5 text-emerald-700 dark:text-emerald-400 animate-pulse" />
             </div>
             <div>
               <div className="flex items-center gap-2 mb-0.5">
@@ -43,7 +43,7 @@ export default function GenomeMatchBanner() {
               {genome.relatedProjects && genome.relatedProjects.length > 0 && (
                 <div className="flex items-center gap-2 mt-1.5 text-[11px] text-slate-600 dark:text-slate-400">
                   <span className="flex items-center gap-1 font-mono">
-                    <FolderGit2 className="w-3 h-3 text-purple-600 dark:text-purple-400" />
+                    <FolderGit2 className="w-3 h-3 text-purple-700 dark:text-purple-400" />
                     استخدمته سابقاً في:
                   </span>
                   <span className="text-slate-800 dark:text-slate-200 font-medium">

@@ -58,7 +58,7 @@ export default function NotificationsPopover() {
       case 'review':
         return <Brain className="w-4 h-4 text-amber-400" />;
       case 'match':
-        return <Sparkles className="w-4 h-4 text-emerald-400" />;
+        return <Sparkles className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />;
       case 'project':
         return <FolderGit2 className="w-4 h-4 text-purple-400" />;
       default:
@@ -72,7 +72,7 @@ export default function NotificationsPopover() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         title="الإشعارات والتنبيهات المعرفية"
-        className="relative w-8 h-8 sm:w-auto p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center cursor-pointer"
+        className="relative w-9 h-9 sm:w-auto p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center cursor-pointer"
       >
         <Bell className="w-4 h-4" />
         {unread > 0 && (
@@ -112,7 +112,7 @@ export default function NotificationsPopover() {
                 {unread > 0 && (
                   <button
                     onClick={markAllAsRead}
-                    className="p-1 rounded text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 text-[11px] flex items-center gap-1 transition-colors"
+                    className="p-1 rounded text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 text-[11px] flex items-center gap-1 transition-colors"
                     title="تحديد الكل كمقروء"
                   >
                     <CheckCheck className="w-3.5 h-3.5" />
@@ -122,7 +122,7 @@ export default function NotificationsPopover() {
                 {notifications.length > 0 && (
                   <button
                     onClick={clearAll}
-                    className="p-1 rounded text-slate-500 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 text-[11px] transition-colors"
+                    className="p-1 rounded text-slate-600 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 text-[11px] transition-colors"
                     title="مسح الكل"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -160,7 +160,7 @@ export default function NotificationsPopover() {
                         >
                           {notif.title}
                         </h5>
-                        <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 shrink-0">
+                        <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500 shrink-0">
                           {notif.time}
                         </span>
                       </div>
@@ -179,7 +179,7 @@ export default function NotificationsPopover() {
 
             {/* Footer */}
             <div className="p-2.5 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/40 text-center">
-              <span className="text-[10px] text-slate-500 font-mono">
+              <span className="text-[10px] text-slate-600 dark:text-slate-500 font-mono">
                 تنبيهات فورية لنظام المراجعة المتباعدة والجينوم
               </span>
             </div>

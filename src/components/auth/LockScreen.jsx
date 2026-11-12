@@ -70,7 +70,7 @@ export default function LockScreen() {
       <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-10">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shadow-glow-emerald">
-            <Dna className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <Dna className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
           </div>
           <span className="text-xs font-bold font-mono tracking-wider text-slate-700 dark:text-slate-300">
             CODE GENOME
@@ -121,7 +121,7 @@ export default function LockScreen() {
                 ? 'bg-rose-500/15 border-rose-500/40 text-rose-500'
                 : isSuccess
                 ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-500'
-                : 'bg-emerald-500/15 border-emerald-500/30 text-emerald-600 dark:text-emerald-400'
+                : 'bg-emerald-500/15 border-emerald-500/30 text-emerald-800 dark:text-emerald-400'
             }`}
           >
             {isSuccess ? (
@@ -156,7 +156,7 @@ export default function LockScreen() {
               {lang === 'ar' ? 'كلمة المرور' : 'Password'}
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 ltr:left-0 rtl:right-0 pl-3.5 pr-3.5 flex items-center pointer-events-none text-slate-400">
+              <div className="absolute inset-y-0 ltr:left-0 rtl:right-0 pl-3.5 pr-3.5 flex items-center pointer-events-none text-slate-600 dark:text-slate-400">
                 <KeyRound className="w-4 h-4" />
               </div>
               <input
@@ -215,7 +215,7 @@ export default function LockScreen() {
         {/* Security Footer Note */}
         <div className="pt-2 border-t border-slate-200 dark:border-white/[0.08] text-center flex items-center justify-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+          <span className="text-[11px] font-mono text-slate-600 dark:text-slate-400">
             {lang === 'ar' ? 'جلسة محلية آمنة (Session Encrypted)' : 'Secure Local Encrypted Session'}
           </span>
         </div>

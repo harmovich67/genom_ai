@@ -59,17 +59,17 @@ export default function GenomeDetailModal() {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 15 }}
+          initial={{ opacity: 0, scale: 0.97, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="w-full max-w-4xl bg-white dark:bg-[#0D121F] rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[92dvh] overflow-hidden my-auto"
+          exit={{ opacity: 0, scale: 0.97, y: 40 }}
+          className="w-full max-w-4xl bg-white dark:bg-[#0D121F] rounded-t-[2rem] sm:rounded-2xl border border-slate-200 dark:border-white/[0.12] shadow-2xl flex flex-col max-h-[94dvh] sm:max-h-[92dvh] overflow-hidden sm:my-auto"
         >
           {/* Modal Header */}
-          <div className="p-5 border-b border-slate-200 dark:border-white/[0.08] flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
+          <div className="px-5 pt-5 pb-4 sm:p-5 border-b border-slate-200 dark:border-white/[0.08] flex items-start justify-between gap-3 sm:gap-4">
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3">
                 <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30">
                   {genome.technology}
                 </span>
@@ -99,19 +99,19 @@ export default function GenomeDetailModal() {
                 )}
               </div>
 
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{genome.title}</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">{genome.title}</h2>
               {genome.englishTitle && (
                 <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">{genome.englishTitle}</p>
               )}
             </div>
 
             {/* Quick action buttons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => toggleFavorite(genome.id)}
-                className={`p-2 rounded-xl border transition-all cursor-pointer ${
+                className={`p-2.5 sm:p-2 rounded-xl border transition-all cursor-pointer ${
                   genome.isFavorite
-                    ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-500/40'
+                    ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-400 border-amber-300 dark:border-amber-500/40'
                     : 'bg-slate-100 dark:bg-white/[0.04] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border-slate-200 dark:border-white/[0.08]'
                 }`}
                 title="إضافة للمفضلة"
@@ -120,7 +120,7 @@ export default function GenomeDetailModal() {
               </button>
               <button
                 onClick={closeModal}
-                className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
+                className="p-2.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -148,13 +148,13 @@ export default function GenomeDetailModal() {
                 {/* Description & Problem/Solution Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                   <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06]">
-                    <span className="text-[10px] font-mono text-rose-600 dark:text-rose-400 font-semibold uppercase tracking-wider block mb-1">
+                    <span className="text-[10px] font-mono text-rose-700 dark:text-rose-400 font-semibold uppercase tracking-wider block mb-1">
                       المشكلة (The Problem)
                     </span>
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{genome.problem || genome.description}</p>
                   </div>
                   <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06]">
-                    <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase tracking-wider block mb-1">
+                    <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold uppercase tracking-wider block mb-1">
                       الحل المطبق (The Solution)
                     </span>
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{genome.solution || genome.aiExplanation}</p>
@@ -227,7 +227,7 @@ export default function GenomeDetailModal() {
                   {/* Related Concepts */}
                   <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-2">
                     <h4 className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                      <GitBranch className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                      <GitBranch className="w-4 h-4 text-cyan-700 dark:text-cyan-400" />
                       المفاهيم المرتبطة (Knowledge Graph Nodes)
                     </h4>
                     <div className="flex flex-wrap gap-1.5 pt-1">
@@ -282,7 +282,7 @@ export default function GenomeDetailModal() {
                     <p><strong className="text-slate-600 dark:text-slate-400">ملاحظاتي:</strong> <span className="text-slate-800 dark:text-slate-200">{genome.personalNotes}</span></p>
                   )}
                   {genome.lastReviewed && (
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">آخر مراجعة هندسية: {genome.lastReviewed}</p>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 font-mono">آخر مراجعة هندسية: {genome.lastReviewed}</p>
                   )}
                 </div>
               </div>
@@ -312,29 +312,30 @@ export default function GenomeDetailModal() {
           </div>
 
           {/* Modal Footer Actions */}
-          <div className="p-4 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/40 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
+          <div className="px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:p-4 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-black/40 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:justify-between sm:gap-3 shrink-0">
+            <div className="contents sm:flex sm:items-center sm:gap-2">
               <button
                 onClick={handleOpenInWorkbench}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs shadow-glow-emerald transition-all cursor-pointer"
+                className="col-span-2 flex items-center justify-center gap-2 px-4 py-3 sm:py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold sm:font-medium text-sm sm:text-xs shadow-glow-emerald transition-all cursor-pointer active:scale-[0.98]"
               >
                 <Terminal className="w-4 h-4" />
                 <span>فتح وتعديل في المختبر</span>
               </button>
               <button
                 onClick={handleAskAI}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-900 border border-purple-300 dark:bg-purple-600/30 dark:hover:bg-purple-600/50 dark:text-purple-200 dark:border-purple-500/40 text-xs transition-all cursor-pointer"
+                className="flex items-center justify-center gap-2 px-3 py-3 sm:px-3.5 sm:py-2 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-900 border border-purple-300 dark:bg-purple-600/30 dark:hover:bg-purple-600/50 dark:text-purple-100 dark:border-purple-500/40 text-xs font-medium transition-all cursor-pointer active:scale-[0.98]"
               >
-                <Bot className="w-4 h-4" />
-                <span>اسأل Genome AI عن هذا الكود</span>
+                <Bot className="w-4 h-4 shrink-0" />
+                <span className="sm:hidden">اسأل Genome AI</span>
+                <span className="hidden sm:inline">اسأل Genome AI عن هذا الكود</span>
               </button>
             </div>
 
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-800 dark:bg-white/[0.06] dark:hover:bg-white/[0.12] dark:text-slate-300 text-xs transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-3 py-3 sm:py-2 rounded-xl bg-slate-200/80 hover:bg-slate-300 text-slate-800 dark:bg-white/[0.06] dark:hover:bg-white/[0.12] dark:text-slate-300 text-xs font-medium transition-all cursor-pointer active:scale-[0.98]"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
               <span>نسخ الشفرة</span>
             </button>
           </div>

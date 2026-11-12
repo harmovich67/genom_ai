@@ -114,12 +114,12 @@ export default function ChallengesPage() {
       {/* Header */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/30">
+          <div className="p-2.5 rounded-2xl bg-purple-500/15 text-purple-700 dark:text-purple-400 border border-purple-500/30">
             <Trophy className="w-5 h-5" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
-              التحديات البرمجية وذاكرة التعلم (Learning Memory)
+              التحديات البرمجية وذاكرة التعلم<span className="hidden sm:inline"> (Learning Memory)</span>
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               اختبر فهمك البرمجي، وحوّل كل خطأ إلى مبدأ محفوظ في ذاكرتك الدائمة بنظام التكرار المتباعد
@@ -189,7 +189,7 @@ export default function ChallengesPage() {
         <div className="p-6 rounded-3xl bg-white dark:bg-gradient-to-br dark:from-[#0D121F] dark:to-[#12192B] border-2 border-purple-500/50 shadow-2xl space-y-4">
           <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/[0.08] pb-3">
             <div>
-              <span className="text-[10px] font-mono text-purple-600 dark:text-purple-400 uppercase font-bold tracking-wider">
+              <span className="text-[10px] font-mono text-purple-700 dark:text-purple-400 uppercase font-bold tracking-wider">
                 SIGNATURE EXPERIENCE: BUILD FROM MEMORY
               </span>
               <h3 className="text-base font-bold text-slate-900 dark:text-white">
@@ -243,9 +243,9 @@ export default function ChallengesPage() {
                 {buildComparisonResult.checks?.map((chk, i) => (
                   <div key={i} className="flex items-center gap-2 text-[11px]">
                     {chk.passed ? (
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
                     ) : (
-                      <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                      <AlertCircle className="w-4 h-4 text-amber-700 dark:text-amber-400" />
                     )}
                     <span className={chk.passed ? 'text-slate-800 dark:text-slate-200' : 'text-amber-800 dark:text-amber-300'}>
                       {chk.name} {chk.tip && `(${chk.tip})`}
@@ -279,7 +279,7 @@ export default function ChallengesPage() {
               <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-white/[0.06] text-slate-600 dark:text-slate-400">
                 {currentChallenge.type}
               </span>
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400">
                 الصعوبة: {currentChallenge.difficulty}
               </span>
             </div>
@@ -338,9 +338,9 @@ export default function ChallengesPage() {
                   {hasAnswered && (
                     <span>
                       {isCorrectOpt ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
                       ) : isSelected ? (
-                        <XCircle className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                        <XCircle className="w-4 h-4 text-rose-700 dark:text-rose-400" />
                       ) : null}
                     </span>
                   )}
@@ -362,7 +362,7 @@ export default function ChallengesPage() {
 
           {/* Action Bar */}
           <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-white/[0.08]">
-            <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+            <span className="text-[11px] text-slate-600 dark:text-slate-400 font-mono">
               كل خطأ يتم تسجيله تلقائياً في ذاكرة التعلم لمراجعته لاحقاً
             </span>
 
@@ -407,7 +407,7 @@ export default function ChallengesPage() {
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-100 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300">
                       موعد المراجعة: {mem.nextReviewDate}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500">
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">
                       مراجعات سابقة: {mem.reviewCount || 0}
                     </span>
                   </div>
@@ -424,7 +424,7 @@ export default function ChallengesPage() {
                 </div>
 
                 <div className="pt-3 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
-                  <span className="text-[10px] text-slate-500 font-mono">
+                  <span className="text-[10px] text-slate-600 dark:text-slate-500 font-mono">
                     كل {mem.reviewIntervalDays} أيام
                   </span>
                   <button
@@ -473,7 +473,7 @@ export default function ChallengesPage() {
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-100 dark:bg-cyan-500/15 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30">
                       {g.technology}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400">
                       {g.difficulty || 'Intermediate'}
                     </span>
                   </div>
@@ -484,7 +484,7 @@ export default function ChallengesPage() {
                 </div>
 
                 <div className="pt-3 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
-                  <span className="text-[10px] text-slate-500 font-mono">
+                  <span className="text-[10px] text-slate-600 dark:text-slate-500 font-mono">
                     {g.language}
                   </span>
                   <button

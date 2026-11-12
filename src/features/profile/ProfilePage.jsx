@@ -46,16 +46,16 @@ export default function ProfilePage() {
   return (
     <div className="space-y-8 pb-16">
       {/* Profile Header Card */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile relative overflow-hidden">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 relative z-10">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 via-purple-500 to-cyan-500 flex items-center justify-center font-bold text-2xl text-white shadow-glow-emerald">
+      <div className="p-5 sm:p-8 rounded-[1.75rem] sm:rounded-3xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile relative overflow-hidden">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-6 relative z-10">
+          <div className="flex items-start sm:items-center gap-4">
+            <div className="shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 via-purple-500 to-cyan-500 flex items-center justify-center font-bold text-2xl text-white shadow-glow-emerald">
               ح
             </div>
-            <div>
-              <div className="flex items-center gap-2">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
                 <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-heading">
-                  حسام المحمود (Hossam Mahmoud)
+                  حسام المحمود<span className="hidden sm:inline"> (Hossam Mahmoud)</span>
                 </h1>
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
                   Senior Full-Stack Architect
@@ -79,20 +79,20 @@ export default function ProfilePage() {
         {/* Stats Row */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-200 dark:border-white/[0.06]">
           <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
-            <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block">الجينومات الموثقة</span>
-            <span className="text-xl font-bold font-mono text-emerald-600 dark:text-emerald-400">{genomes.length}</span>
+            <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">الجينومات الموثقة</span>
+            <span className="text-xl font-bold font-mono text-emerald-700 dark:text-emerald-400">{genomes.length}</span>
           </div>
           <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
-            <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block">المشاريع المنجزة</span>
-            <span className="text-xl font-bold font-mono text-purple-600 dark:text-purple-400">{projects.length}</span>
+            <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">المشاريع المنجزة</span>
+            <span className="text-xl font-bold font-mono text-purple-700 dark:text-purple-400">{projects.length}</span>
           </div>
           <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
-            <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block">الأخطاء المحلولة</span>
-            <span className="text-xl font-bold font-mono text-rose-600 dark:text-rose-400">{bugs.length}</span>
+            <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">الأخطاء المحلولة</span>
+            <span className="text-xl font-bold font-mono text-rose-700 dark:text-rose-400">{bugs.length}</span>
           </div>
           <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
-            <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block">سلسلة التعلم النشط</span>
-            <span className="text-xl font-bold font-mono text-amber-600 dark:text-amber-400">14 يوماً 🔥</span>
+            <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">سلسلة التعلم النشط</span>
+            <span className="text-xl font-bold font-mono text-amber-700 dark:text-amber-400">14 يوماً 🔥</span>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function ProfilePage() {
               className="p-4 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.06] shadow-tactile flex items-center justify-between"
             >
               <div>
-                <span className="text-[10px] font-mono text-slate-500 uppercase block">{tech.category}</span>
+                <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500 uppercase block">{tech.category}</span>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">{tech.name}</h4>
               </div>
 
@@ -159,7 +159,7 @@ export default function ProfilePage() {
               <div>
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white">{ach.title}</h4>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">{ach.desc}</p>
-                <span className="inline-block mt-2 text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="inline-block mt-2 text-[9px] font-mono text-emerald-700 dark:text-emerald-400 font-bold">
                   ✓ تم الفتح
                 </span>
               </div>

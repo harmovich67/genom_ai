@@ -67,12 +67,12 @@ export default function IdeasPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+          <div className="p-2.5 rounded-2xl bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
             <Lightbulb className="w-5 h-5" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
-              معمل الأفكار والمخططات (Idea Forge)
+              معمل الأفكار والمخططات<span className="hidden sm:inline"> (Idea Forge)</span>
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               حوّل أي فكرة مجردة إلى مخطط معماري وتقني متكامل وانقلها إلى مشروع بنقرة واحدة
@@ -80,7 +80,7 @@ export default function IdeasPage() {
           </div>
         </div>
 
-        <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30">
+        <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
           {ideas.length} فكرة ومخطط
         </span>
       </div>
@@ -90,7 +90,7 @@ export default function IdeasPage() {
         onSubmit={handleForge}
         className="p-5 rounded-3xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-3"
       >
-        <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold text-xs">
+        <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-semibold text-xs">
           <Sparkles className="w-4 h-4" />
           <span>صاغ الأفكار الذكي (Idea Forge Engine)</span>
         </div>
@@ -104,7 +104,7 @@ export default function IdeasPage() {
         />
 
         <div className="flex items-center justify-between">
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono hidden sm:inline">
+          <span className="text-[11px] text-slate-600 dark:text-slate-400 font-mono hidden sm:inline">
             يستخرج الميزات، الـ MVP، معمارية النظام، وخطة التنفيذ
           </span>
 
@@ -140,7 +140,7 @@ export default function IdeasPage() {
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300">
                   {item.isTurnedToProject ? 'تم تحويلها لمشروع' : 'مخطط مكتمل'}
                 </span>
-                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500">
+                <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500">
                   {item.createdAt?.split('T')[0]}
                 </span>
               </div>
@@ -181,12 +181,12 @@ export default function IdeasPage() {
             {/* Problem & Target Users */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
-                <span className="font-semibold text-rose-600 dark:text-rose-400 block font-mono">المشكلة التي يحلها (Problem):</span>
+                <span className="font-semibold text-rose-700 dark:text-rose-400 block font-mono">المشكلة التي يحلها (Problem):</span>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{selectedIdea.problem}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
-                <span className="font-semibold text-cyan-600 dark:text-cyan-400 block font-mono">الجمهور المستهدف (Target Users):</span>
+                <span className="font-semibold text-cyan-700 dark:text-cyan-400 block font-mono">الجمهور المستهدف (Target Users):</span>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{selectedIdea.targetUsers}</p>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function IdeasPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {selectedIdea.coreFeatures.map((f, i) => (
                     <div key={i} className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.04] text-slate-700 dark:text-slate-300 flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400 shrink-0" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -240,7 +240,7 @@ export default function IdeasPage() {
                   <ul className="space-y-1 text-slate-600 dark:text-slate-400">
                     {selectedIdea.phases.map((ph, idx) => (
                       <li key={idx} className="flex items-center gap-1.5">
-                        <span className="text-emerald-600 dark:text-emerald-400 font-mono">#{idx + 1}</span> {ph}
+                        <span className="text-emerald-700 dark:text-emerald-400 font-mono">#{idx + 1}</span> {ph}
                       </li>
                     ))}
                   </ul>

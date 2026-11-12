@@ -180,7 +180,7 @@ export default function NewProjectModal() {
 
             {/* Footer Buttons */}
             <div className="pt-3 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+              <span className="text-[11px] text-slate-600 dark:text-slate-400 font-mono">
                 سيتم تفعيل مستشار ذاكرة المشروع التفاعلي تلقائياً
               </span>
               <div className="flex items-center gap-2">
