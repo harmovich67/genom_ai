@@ -488,7 +488,11 @@ export default function WorkbenchPage() {
 
           {/* Monaco / Code Editor Container */}
           <div dir="ltr" className="flex-1 min-h-[340px] h-full text-left relative overflow-hidden bg-white dark:bg-[#07090e]">
-            {editorMode === 'monaco' ? (
+            {/* While fullscreen is open the overlay owns the editor. Monaco models are keyed by `path`;
+                two editors on the same path share one model and disposing either one (e.g. when the
+                fullscreen overlay finishes its exit animation) wipes the other. The fullscreen editor
+                therefore uses its own `fullscreen/...` path. */}
+            {isFullscreen ? null : editorMode === 'monaco' ? (
               <Editor
                 height="100%"
                 path={getCurrentPath()}
@@ -855,7 +859,7 @@ export default function WorkbenchPage() {
               {editorMode === 'monaco' ? (
                 <Editor
                   height="100%"
-                  path={getCurrentPath()}
+                  path={`fullscreen/${getCurrentPath()}`}
                   theme={theme === 'dark' ? 'vs-dark' : 'vs'}
                   language={getCurrentLanguage()}
                   value={getCurrentCode()}
