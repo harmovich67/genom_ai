@@ -112,29 +112,29 @@ export default function ChallengesPage() {
   return (
     <div className="space-y-6 pb-16">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-5 lg:gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-purple-500/15 text-purple-700 dark:text-purple-400 border border-purple-500/30">
+          <div className="shrink-0 p-3 sm:p-2.5 rounded-2xl bg-purple-500/15 text-purple-700 dark:text-purple-400 border border-purple-500/30">
             <Trophy className="w-5 h-5" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
               التحديات البرمجية وذاكرة التعلم<span className="hidden sm:inline"> (Learning Memory)</span>
             </h1>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
               اختبر فهمك البرمجي، وحوّل كل خطأ إلى مبدأ محفوظ في ذاكرتك الدائمة بنظام التكرار المتباعد
             </p>
           </div>
         </div>
 
         {/* Action Controls */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-2">
           {/* AI Generator Button */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/30">
+          <div className="flex items-center justify-between sm:justify-start gap-1.5 p-1.5 sm:p-1 rounded-xl bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/30">
             <select
               value={aiCategory}
               onChange={(e) => setAiCategory(e.target.value)}
-              className="bg-transparent text-[11px] font-mono text-purple-900 dark:text-purple-200 outline-none px-2 py-1 cursor-pointer"
+              className="flex-1 sm:flex-none bg-transparent text-xs sm:text-[11px] font-mono text-purple-900 dark:text-purple-200 outline-none px-2 py-1 cursor-pointer"
             >
               <option value="React" className="bg-white dark:bg-slate-900 text-slate-800 dark:text-white">React</option>
               <option value="JavaScript" className="bg-white dark:bg-slate-900 text-slate-800 dark:text-white">JavaScript</option>
@@ -145,7 +145,7 @@ export default function ChallengesPage() {
             <button
               onClick={handleGenerateAI}
               disabled={isGeneratingChallenge}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-glow-purple disabled:opacity-50 transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-glow-purple disabled:bg-slate-500 dark:disabled:bg-slate-700 disabled:hover:bg-slate-500 dark:disabled:hover:bg-slate-700 disabled:shadow-none disabled:cursor-not-allowed transition-all cursor-pointer"
             >
               <Sparkles className={`w-3.5 h-3.5 ${isGeneratingChallenge ? 'animate-spin' : ''}`} />
               <span>{isGeneratingChallenge ? 'جارِ التوليد...' : 'توليد بالـ AI'}</span>
@@ -153,32 +153,39 @@ export default function ChallengesPage() {
           </div>
 
           {/* View Switcher */}
-          <div className="flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/[0.08]">
+          <div className="flex items-stretch p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/[0.08]">
             <button
               onClick={() => setActiveTab('quiz')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-none justify-center whitespace-nowrap px-2 sm:px-3 py-2.5 sm:py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'quiz' ? 'bg-purple-600 text-white shadow-glow-purple' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              التحديات ({challenges.length})
+              التحديات <span className="font-mono">({challenges.length})</span>
             </button>
             <button
               onClick={() => setActiveTab('memory')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`flex-1 sm:flex-none justify-center whitespace-nowrap px-2 sm:px-3 py-2.5 sm:py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'memory' ? 'bg-emerald-600 text-white shadow-glow-emerald' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Brain className="w-3.5 h-3.5" />
-              <span>ذاكرة الأخطاء ({learningMemory.length})</span>
+              <span>
+                <span className="sm:hidden">الذاكرة</span>
+                <span className="hidden sm:inline">ذاكرة الأخطاء</span>
+                <span className="font-mono"> ({learningMemory.length})</span>
+              </span>
             </button>
             <button
               onClick={() => setActiveTab('build')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`flex-1 sm:flex-none justify-center whitespace-nowrap px-2 sm:px-3 py-2.5 sm:py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'build' ? 'bg-cyan-600 text-white shadow-glow-cyan' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <Code2 className="w-3.5 h-3.5" />
-              <span>البناء من الذاكرة</span>
+              <span>
+                <span className="sm:hidden">البناء</span>
+                <span className="hidden sm:inline">البناء من الذاكرة</span>
+              </span>
             </button>
           </div>
         </div>
@@ -371,7 +378,7 @@ export default function ChallengesPage() {
                 <button
                   onClick={handleConfirmAnswer}
                   disabled={selectedOption === null}
-                  className="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs shadow-glow-purple disabled:opacity-40 transition-all cursor-pointer"
+                  className="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs shadow-glow-purple disabled:bg-slate-500 dark:disabled:bg-slate-700 disabled:hover:bg-slate-500 dark:disabled:hover:bg-slate-700 disabled:shadow-none disabled:cursor-not-allowed transition-all cursor-pointer"
                 >
                   تأكيد الإجابة
                 </button>

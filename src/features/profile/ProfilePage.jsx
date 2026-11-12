@@ -57,19 +57,23 @@ export default function ProfilePage() {
                 <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-heading">
                   حسام المحمود<span className="hidden sm:inline"> (Hossam Mahmoud)</span>
                 </h1>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
                   Senior Full-Stack Architect
                 </span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              <p className="hidden sm:block text-xs text-slate-600 dark:text-slate-400 mt-1">
                 الرياض، المملكة العربية السعودية • متخصص في تطبيقات التجارة الإلكترونية، أنظمة سلة وزد، وحلول الأداء العالي
               </p>
             </div>
           </div>
 
+          <p className="sm:hidden text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
+            الرياض، المملكة العربية السعودية • متخصص في تطبيقات التجارة الإلكترونية، أنظمة سلة وزد، وحلول الأداء العالي
+          </p>
+
           <button
             onClick={() => openModal('settings')}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
+            className="flex items-center justify-center gap-1.5 px-4 py-3 sm:py-2 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
           >
             <Settings className="w-4 h-4" />
             <span>إعدادات الحساب والبيانات</span>
@@ -77,22 +81,22 @@ export default function ProfilePage() {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-200 dark:border-white/[0.06]">
-          <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 pt-5 sm:mt-6 sm:pt-6 border-t border-slate-200 dark:border-white/[0.06]">
+          <div className="p-4 sm:p-3 rounded-2xl sm:rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.04] space-y-1">
             <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">الجينومات الموثقة</span>
-            <span className="text-xl font-bold font-mono text-emerald-700 dark:text-emerald-400">{genomes.length}</span>
+            <span className="block text-2xl sm:text-xl font-bold font-mono text-emerald-700 dark:text-emerald-400">{genomes.length}</span>
           </div>
-          <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
+          <div className="p-4 sm:p-3 rounded-2xl sm:rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.04] space-y-1">
             <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">المشاريع المنجزة</span>
-            <span className="text-xl font-bold font-mono text-purple-700 dark:text-purple-400">{projects.length}</span>
+            <span className="block text-2xl sm:text-xl font-bold font-mono text-purple-700 dark:text-purple-400">{projects.length}</span>
           </div>
-          <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
+          <div className="p-4 sm:p-3 rounded-2xl sm:rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.04] space-y-1">
             <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">الأخطاء المحلولة</span>
-            <span className="text-xl font-bold font-mono text-rose-700 dark:text-rose-400">{bugs.length}</span>
+            <span className="block text-2xl sm:text-xl font-bold font-mono text-rose-700 dark:text-rose-400">{bugs.length}</span>
           </div>
-          <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-100 dark:border-transparent">
+          <div className="p-4 sm:p-3 rounded-2xl sm:rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.04] space-y-1">
             <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block">سلسلة التعلم النشط</span>
-            <span className="text-xl font-bold font-mono text-amber-700 dark:text-amber-400">14 يوماً 🔥</span>
+            <span className="block text-2xl sm:text-xl font-bold font-mono text-amber-700 dark:text-amber-400">14 يوماً 🔥</span>
           </div>
         </div>
       </div>
@@ -102,9 +106,9 @@ export default function ProfilePage() {
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-base font-bold text-slate-900 dark:text-white font-heading">
-              حزمة المهارات البرمجية والذكاء السياقي (Personal Stack Intelligence)
+              حزمة المهارات البرمجية<span className="hidden sm:inline"> والذكاء السياقي (Personal Stack Intelligence)</span>
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
               يستخدم الذكاء الاصطناعي هذه الإعدادات لتخصيص الحلول والتحديات البرمجية بناءً على مستواك
             </p>
           </div>
@@ -114,7 +118,7 @@ export default function ProfilePage() {
           {techStack.map((tech) => (
             <div
               key={tech.id}
-              className="p-4 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.06] shadow-tactile flex items-center justify-between"
+              className="p-4 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.06] shadow-tactile flex items-center justify-between gap-3"
             >
               <div>
                 <span className="text-[10px] font-mono text-slate-600 dark:text-slate-500 uppercase block">{tech.category}</span>
@@ -125,7 +129,7 @@ export default function ProfilePage() {
               <select
                 value={tech.level}
                 onChange={(e) => handleUpdateLevel(tech.id, e.target.value)}
-                className={`p-1.5 rounded-lg text-xs font-mono font-semibold outline-none border cursor-pointer ${
+                className={`px-2.5 py-2 sm:p-1.5 rounded-xl sm:rounded-lg text-xs font-mono font-semibold outline-none border cursor-pointer ${
                   tech.level === 'Expert'
                     ? 'bg-emerald-50 text-emerald-900 border-emerald-300 dark:bg-emerald-500/20 dark:text-emerald-300 dark:border-emerald-500/30'
                     : tech.level === 'Comfortable'
@@ -146,7 +150,7 @@ export default function ProfilePage() {
       {/* ACHIEVEMENTS & MILESTONES */}
       <section className="space-y-4">
         <h2 className="text-base font-bold text-slate-900 dark:text-white font-heading">
-          الأوسمة والإنجازات الهندسية (Achievements)
+          الأوسمة والإنجازات<span className="hidden sm:inline"> الهندسية (Achievements)</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">

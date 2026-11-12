@@ -183,10 +183,10 @@ export default function SettingsModal() {
             onChange={setActiveTab}
             className="px-3 bg-slate-50 dark:bg-black/20 shrink-0"
             tabs={[
-              { id: 'general', label: 'عام والمظهر' },
-              { id: 'ai', label: 'الذكاء الاصطناعي (Gemini)' },
-              { id: 'data', label: 'البيانات والتصدير' },
-              { id: 'shortcuts', label: 'اختصارات المفاتيح' },
+              { id: 'general', label: 'عام والمظهر', shortLabel: 'عام' },
+              { id: 'ai', label: 'الذكاء الاصطناعي (Gemini)', shortLabel: 'الذكاء' },
+              { id: 'data', label: 'البيانات والتصدير', shortLabel: 'البيانات' },
+              { id: 'shortcuts', label: 'اختصارات المفاتيح', shortLabel: 'الاختصارات' },
             ]}
           />
 

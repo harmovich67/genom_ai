@@ -65,22 +65,22 @@ export default function IdeasPage() {
   return (
     <div className="space-y-6 pb-16">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
+          <div className="shrink-0 p-3 sm:p-2.5 rounded-2xl bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
             <Lightbulb className="w-5 h-5" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-heading">
               معمل الأفكار والمخططات<span className="hidden sm:inline"> (Idea Forge)</span>
             </h1>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
               حوّل أي فكرة مجردة إلى مخطط معماري وتقني متكامل وانقلها إلى مشروع بنقرة واحدة
             </p>
           </div>
         </div>
 
-        <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
+        <span className="self-start sm:self-auto px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
           {ideas.length} فكرة ومخطط
         </span>
       </div>
@@ -88,11 +88,11 @@ export default function IdeasPage() {
       {/* Idea Forge Input Form */}
       <form
         onSubmit={handleForge}
-        className="p-5 rounded-3xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-3"
+        className="p-5 rounded-3xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-4"
       >
-        <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-semibold text-xs">
+        <div className="flex items-center gap-2 text-amber-800 dark:text-amber-400 font-semibold text-xs">
           <Sparkles className="w-4 h-4" />
-          <span>صاغ الأفكار الذكي (Idea Forge Engine)</span>
+          <span>صاغ الأفكار الذكي<span className="hidden sm:inline"> (Idea Forge Engine)</span></span>
         </div>
 
         <textarea
@@ -100,10 +100,10 @@ export default function IdeasPage() {
           value={rawInput}
           onChange={(e) => setRawInput(e.target.value)}
           placeholder="اكتب فكرتك بعفوية... مثال: أريد بناء إضافة ووردبريس ومحرر غوتنبرغ تكتشف عندما يكتب الكاتب بالعربي والكيبورد إنجليزي وتصححها فورياً بضغطة زر."
-          className="w-full p-3.5 rounded-2xl bg-slate-50 dark:bg-black/50 border border-slate-200 dark:border-white/[0.1] text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 outline-none focus:border-amber-500/50 transition-colors leading-relaxed"
+          className="w-full p-4 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-black/50 border border-slate-200 dark:border-white/[0.1] text-[13px] sm:text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 outline-none focus:border-amber-500/50 transition-colors leading-relaxed"
         />
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <span className="text-[11px] text-slate-600 dark:text-slate-400 font-mono hidden sm:inline">
             يستخرج الميزات، الـ MVP، معمارية النظام، وخطة التنفيذ
           </span>
@@ -111,7 +111,7 @@ export default function IdeasPage() {
           <button
             type="submit"
             disabled={isForging || !rawInput.trim()}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 via-orange-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white font-semibold text-xs shadow-glow-amber disabled:opacity-50 transition-all flex items-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto justify-center px-5 py-3 sm:py-2.5 rounded-xl bg-gradient-to-r from-amber-600 via-orange-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white font-semibold text-xs shadow-glow-amber disabled:shadow-none disabled:from-slate-500 disabled:via-slate-500 disabled:to-slate-500 dark:disabled:from-slate-700 dark:disabled:via-slate-700 dark:disabled:to-slate-700 disabled:cursor-not-allowed transition-all flex items-center gap-2 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
             <span>{isForging ? 'جاري الصياغة المعمارية...' : 'تشكيل الفكرة ومخططها الهندسي'}</span>

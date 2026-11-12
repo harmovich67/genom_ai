@@ -176,7 +176,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Selected Project Main Card */}
-      <div className="p-5 sm:p-6 rounded-[1.75rem] sm:rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-6 sm:space-y-5">
+      <div className="p-5 sm:p-6 rounded-[1.75rem] sm:rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.08] shadow-tactile space-y-5">
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 sm:gap-4 border-b border-slate-200 dark:border-white/[0.08] pb-5">
           <div>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
@@ -228,11 +228,11 @@ export default function ProjectsPage() {
           onChange={setActiveProjectTab}
           className="pt-2"
           tabs={[
-            { id: 'overview', label: 'نظرة عامة والمعمارية' },
-            { id: 'tasks', label: 'المهام والأهداف', badge: project.tasks?.length ?? 0 },
-            { id: 'adr', label: 'سجل القرارات (ADR)', badge: projectDecisions.length },
-            { id: 'timeline', label: 'الجدول الزمني والمراحل', icon: Clock },
-            { id: 'memoryChat', label: 'مستشار ذاكرة المشروع (AI Memory)', icon: Bot },
+            { id: 'overview', label: 'نظرة عامة والمعمارية', shortLabel: 'نظرة عامة' },
+            { id: 'tasks', label: 'المهام والأهداف', shortLabel: 'المهام', badge: project.tasks?.length ?? 0 },
+            { id: 'adr', label: 'سجل القرارات (ADR)', shortLabel: 'القرارات', badge: projectDecisions.length },
+            { id: 'timeline', label: 'الجدول الزمني والمراحل', shortLabel: 'الجدول', icon: Clock },
+            { id: 'memoryChat', label: 'مستشار ذاكرة المشروع (AI Memory)', shortLabel: 'مستشار AI', icon: Bot },
           ]}
         />
 
@@ -294,7 +294,7 @@ export default function ProjectsPage() {
               </h4>
               <div className="space-y-1.5">
                 {project.goals?.map((g, idx) => (
-                  <div key={idx} className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-white/[0.04] text-slate-700 dark:text-slate-300">
+                  <div key={idx} className="p-3 sm:p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.04] text-slate-700 dark:text-slate-300">
                     • {g}
                   </div>
                 ))}
@@ -333,14 +333,16 @@ export default function ProjectsPage() {
         {/* Tab 3: Architecture Decision Records (ADR) */}
         {activeProjectTab === 'adr' && (
           <div className="space-y-4 text-xs">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
               <div>
-                <h4 className="font-semibold text-slate-900 dark:text-white">سجل القرارات المعمارية (Decision Log / ADR)</h4>
-                <p className="text-[11px] text-slate-600 dark:text-slate-400">توثيق القرارات الهندسية وأسباب اتخاذها وعواقبها كمرجع دائم</p>
+                <h4 className="text-sm sm:text-xs font-semibold text-slate-900 dark:text-white">
+                  سجل القرارات المعمارية<span className="hidden sm:inline"> (Decision Log / ADR)</span>
+                </h4>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">توثيق القرارات الهندسية وأسباب اتخاذها وعواقبها كمرجع دائم</p>
               </div>
               <button
                 onClick={() => setShowNewDecisionModal(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs transition-all shadow-glow-purple cursor-pointer"
+                className="flex items-center justify-center gap-1.5 px-3 py-3 sm:py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold sm:font-medium text-xs transition-all shadow-glow-purple cursor-pointer active:scale-[0.98] shrink-0"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>توثيق قرار جديد</span>
@@ -421,12 +423,14 @@ export default function ProjectsPage() {
         {/* Tab 4: Project Timeline & Milestones */}
         {activeProjectTab === 'timeline' && (
           <div className="space-y-4 text-xs">
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-white/[0.08] pb-4">
               <div>
-                <h4 className="font-semibold text-white">الجدول الزمني ومراحل الإطلاق (Roadmap & Timeline)</h4>
-                <p className="text-[11px] text-slate-600 dark:text-slate-400">تتبع محطات المشروع والتقدم الهندسي عبر دورة حياة البرمجية</p>
+                <h4 className="text-sm sm:text-xs font-semibold text-slate-900 dark:text-white">
+                  الجدول الزمني ومراحل الإطلاق<span className="hidden sm:inline"> (Roadmap & Timeline)</span>
+                </h4>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">تتبع محطات المشروع والتقدم الهندسي عبر دورة حياة البرمجية</p>
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30">
+              <span className="self-start sm:self-auto px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30">
                 {project.timeline}
               </span>
             </div>
@@ -515,18 +519,18 @@ export default function ProjectsPage() {
             </div>
 
             {/* Input Bar */}
-            <form onSubmit={handleAskProjectAI} className="flex gap-2">
+            <form onSubmit={handleAskProjectAI} className="flex items-center gap-2.5">
               <input
                 type="text"
                 value={projectAiQuestion}
                 onChange={(e) => setProjectAiQuestion(e.target.value)}
                 placeholder={`اسأل Genome AI عن ${project.name}...`}
-                className="flex-1 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-white/[0.1] text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none focus:border-purple-500"
+                className="flex-1 min-w-0 px-3.5 py-3 sm:p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-white/[0.1] text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none focus:border-purple-500"
               />
               <button
                 type="submit"
                 disabled={isAiThinking || !projectAiQuestion.trim()}
-                className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs shadow-glow-purple disabled:opacity-50 transition-all flex items-center gap-1.5 cursor-pointer"
+                className="shrink-0 px-4 py-3 sm:py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs shadow-glow-purple disabled:shadow-none disabled:bg-slate-500 dark:disabled:bg-slate-700 disabled:hover:bg-slate-500 dark:disabled:hover:bg-slate-700 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>إرسال</span>

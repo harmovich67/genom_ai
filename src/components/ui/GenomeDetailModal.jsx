@@ -134,9 +134,9 @@ export default function GenomeDetailModal() {
             onChange={setActiveTab}
             className="px-3 bg-slate-50 dark:bg-black/20 shrink-0"
             tabs={[
-              { id: 'code', label: 'الكود والحل العملي' },
-              { id: 'dna', label: 'جينوم المعرفة (DNA Analysis)', icon: Sparkles },
-              { id: 'context', label: 'متى يستخدم وتفاصيل السياق' },
+              { id: 'code', label: 'الكود والحل العملي', shortLabel: 'الكود والحل' },
+              { id: 'dna', label: 'جينوم المعرفة (DNA Analysis)', shortLabel: 'جينوم المعرفة', icon: Sparkles },
+              { id: 'context', label: 'متى يستخدم وتفاصيل السياق', shortLabel: 'متى يُستخدم' },
               { id: 'security', label: 'الأداء والأمان' },
             ]}
           />

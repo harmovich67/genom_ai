@@ -308,7 +308,7 @@ export const projectGuard = (req, res, next) => {
                 <button
                   onClick={() => analyzeContent(fileContent, 'pasted-config.json')}
                   disabled={!fileContent.trim() || isAnalyzing}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs shadow-glow-purple disabled:opacity-40 transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs shadow-glow-purple disabled:bg-slate-500 dark:disabled:bg-slate-700 disabled:hover:bg-slate-500 dark:disabled:hover:bg-slate-700 disabled:shadow-none disabled:cursor-not-allowed transition-all cursor-pointer"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{isAnalyzing ? 'جاري التحليل...' : 'بدء التحليل المعماري'}</span>

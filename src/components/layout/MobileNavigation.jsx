@@ -57,6 +57,12 @@ export default function MobileNavigation() {
 
   return (
     <>
+      {/* soft fade so scrolling content doesn't collide with the floating bar */}
+      <div
+        aria-hidden="true"
+        className="md:hidden fixed inset-x-0 bottom-0 z-30 h-28 pointer-events-none bg-gradient-to-t from-slate-50 via-slate-50/85 to-transparent dark:from-[#07090E] dark:via-[#07090E]/85 dark:to-transparent"
+      />
+
       <nav className="md:hidden fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 rounded-[1.75rem] bg-white/90 dark:bg-[#0D121F]/90 backdrop-blur-xl border border-slate-200/90 dark:border-white/[0.1] shadow-[0_12px_40px_-12px_rgba(15,23,42,0.35)] dark:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.9)] p-1.5 flex items-stretch gap-1">
         {mainTabs.map((tab) => {
           const Icon = tab.icon;

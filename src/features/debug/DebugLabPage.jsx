@@ -287,7 +287,7 @@ export default function DebugLabPage() {
             <button
               type="submit"
               disabled={isAnalyzing}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-600 hover:from-purple-500 hover:to-rose-500 text-white font-semibold text-xs shadow-glow-purple disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-600 hover:from-purple-500 hover:to-rose-500 text-white font-semibold text-xs shadow-glow-purple disabled:shadow-none disabled:from-slate-500 disabled:via-slate-500 disabled:to-slate-500 dark:disabled:from-slate-700 dark:disabled:via-slate-700 dark:disabled:to-slate-700 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
               <span>{isAnalyzing ? 'جاري تحليل الأسباب ودرجة الثقة...' : 'بدء التحليل الهندسي الفوري'}</span>

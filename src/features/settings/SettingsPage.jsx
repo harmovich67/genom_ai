@@ -159,17 +159,17 @@ export default function SettingsPage() {
         active={activeTab}
         onChange={setActiveTab}
         tabs={[
-          { id: 'general', label: 'عام والمظهر' },
-          { id: 'ai', label: 'الذكاء الاصطناعي (Gemini)', icon: Sparkles },
-          { id: 'data', label: 'البيانات والنسخ الاحتياطي' },
-          { id: 'shortcuts', label: 'اختصارات لوحة المفاتيح' },
+          { id: 'general', label: 'عام والمظهر', shortLabel: 'عام' },
+          { id: 'ai', label: 'الذكاء الاصطناعي (Gemini)', shortLabel: 'الذكاء', icon: Sparkles },
+          { id: 'data', label: 'البيانات والنسخ الاحتياطي', shortLabel: 'البيانات' },
+          { id: 'shortcuts', label: 'اختصارات لوحة المفاتيح', shortLabel: 'الاختصارات' },
         ]}
       />
 
       {/* Tab 1: General */}
       {activeTab === 'general' && (
         <div className="space-y-4 text-xs">
-          <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
+          <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">اللغة الأساسية للواجهة</h4>
               <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">يدعم النظام التحويل الفوري بين العربية (RTL) والإنجليزية (LTR)</p>
@@ -177,7 +177,7 @@ export default function SettingsPage() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setLang('ar')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                className={`flex-1 sm:flex-none px-4 py-2.5 sm:py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   lang === 'ar' ? 'bg-emerald-600 text-white shadow-glow-emerald' : 'bg-slate-100 dark:bg-white/[0.06] text-slate-700 dark:text-slate-300'
                 }`}
               >
@@ -185,7 +185,7 @@ export default function SettingsPage() {
               </button>
               <button
                 onClick={() => setLang('en')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                className={`flex-1 sm:flex-none px-4 py-2.5 sm:py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   lang === 'en' ? 'bg-emerald-600 text-white shadow-glow-emerald' : 'bg-slate-100 dark:bg-white/[0.06] text-slate-700 dark:text-slate-300'
                 }`}
               >
@@ -194,21 +194,21 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
+          <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">المظهر البصري (Theme)</h4>
               <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">مظهر الحبر العميق المظلم أو المظهر الفاتح عالي التباين</p>
             </div>
             <button
               onClick={toggleTheme}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 font-mono text-xs border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 font-mono text-xs border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
             >
               {theme === 'dark' ? <Moon className="w-4 h-4 text-cyan-400" /> : <Sun className="w-4 h-4 text-amber-500" />}
               <span>{theme === 'dark' ? 'الداكن (Deep Ink)' : 'الفاتح (Light Clean)'}</span>
             </button>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between">
+          <div className="p-5 rounded-2xl bg-white dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] shadow-tactile flex items-center justify-between gap-4">
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-white text-sm">تقليل التأثيرات الحركية (Reduced Motion)</h4>
               <p className="text-slate-600 dark:text-slate-400 text-[11px] mt-0.5">إيقاف الرسوم المتحركة المعقدة لتجربة أسرع وأخف على الجهاز</p>

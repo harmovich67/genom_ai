@@ -20,7 +20,7 @@ const ACCENTS = {
  * - keeps the active tab in view
  * - one consistent colour per bar in both light and dark mode (icons inherit it)
  *
- * tabs: [{ id, label, icon?: LucideIcon, badge?: number | string }]
+ * tabs: [{ id, label, shortLabel?: string (shown below the sm breakpoint), icon?: LucideIcon, badge?: number | string }]
  */
 export default function TabBar({ tabs, active, onChange, accent = 'emerald', className = '' }) {
   const listRef = useRef(null);
@@ -47,14 +47,21 @@ export default function TabBar({ tabs, active, onChange, accent = 'emerald', cla
             role="tab"
             aria-selected={isActive}
             onClick={() => onChange(tab.id)}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 min-h-[44px] sm:min-h-0 py-2.5 sm:py-3 px-3.5 border-b-2 transition-colors cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 min-h-[44px] sm:min-h-0 py-2.5 sm:py-3 px-3 sm:px-3.5 border-b-2 transition-colors cursor-pointer ${
               isActive
                 ? `${colors.active} font-semibold`
-                : 'border-transparent text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
+                : 'border-transparent text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
             }`}
           >
             {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
-            <span>{tab.label}</span>
+            {tab.shortLabel ? (
+              <>
+                <span className="sm:hidden">{tab.shortLabel}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
+              </>
+            ) : (
+              <span>{tab.label}</span>
+            )}
             {tab.badge != null && (
               <span
                 className={`px-1.5 py-0.5 rounded-full text-[10px] font-mono leading-none ${

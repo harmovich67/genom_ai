@@ -158,7 +158,7 @@ export default function NewGenomeModal() {
                   type="button"
                   disabled={isAnalyzing || !code.trim()}
                   onClick={handleAIAnalyze}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white font-medium text-xs shadow-glow-purple disabled:opacity-50 transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white font-medium text-xs shadow-glow-purple disabled:shadow-none disabled:from-slate-500 disabled:via-slate-500 disabled:to-slate-500 dark:disabled:from-slate-700 dark:disabled:via-slate-700 dark:disabled:to-slate-700 disabled:cursor-not-allowed transition-all cursor-pointer"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{isAnalyzing ? 'جاري استخراج الـ DNA...' : 'استخراج الجينوم بالذكاء الاصطناعي'}</span>
