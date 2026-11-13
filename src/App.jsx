@@ -68,7 +68,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-genome-bg text-slate-800 dark:text-slate-100 flex flex-col font-sans selection:bg-emerald-500/25 selection:text-emerald-700 dark:selection:text-emerald-300 transition-colors overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-genome-bg text-slate-800 dark:text-slate-100 flex flex-col font-sans selection:bg-emerald-500/25 selection:text-emerald-700 dark:selection:text-emerald-300 transition-colors overflow-x-clip">
       {/* Global Sticky Header */}
       <Header />
 

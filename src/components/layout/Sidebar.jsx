@@ -103,7 +103,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="hidden md:flex flex-col w-64 h-[calc(100dvh-4rem)] sticky top-16 bg-white/90 dark:bg-[#090D17]/80 backdrop-blur-xl border-l border-slate-200 dark:border-white/[0.08] p-3 justify-between z-20 shrink-0 select-none transition-colors">
+    <aside className="hidden md:flex flex-col w-64 h-[calc(100dvh-4rem)] sticky top-16 overflow-y-auto overscroll-contain bg-white/90 dark:bg-[#090D17]/80 backdrop-blur-xl border-l border-slate-200 dark:border-white/[0.08] p-3 justify-between z-20 shrink-0 select-none transition-colors">
       {/* Primary Navigation */}
       <div className="space-y-6">
         <div>
